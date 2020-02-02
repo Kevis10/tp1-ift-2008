@@ -16,11 +16,10 @@
 #include <string>   // Pour le nom de la pièce
 #include <queue>	// Pour utiliser la file de la STL afin de solutionner le labyrinthe
 
-#include <limits>   // Pour l'utilisation de numeric_limits<int>::max()
+#include <limits> // Pour l'utilisation de numeric_limits<int>::max()
 
 #include "Porte.h"
 #include "Piece.h"
-
 
 namespace TP1
 {
@@ -36,13 +35,13 @@ public:
 	Labyrinthe();
 
 	//! Constructeur de copie
-	Labyrinthe(const Labyrinthe & source);
+	Labyrinthe(const Labyrinthe &source);
 
 	//! Destructeur
 	~Labyrinthe();
 
 	//! Surcharge de l'opérateur =
-	const Labyrinthe & operator =(const Labyrinthe & source);
+	const Labyrinthe &operator=(const Labyrinthe &source);
 
 	//! Méthode fournie dans le fichier Labyrinthe.cpp, elle charge
 	//! un fichier contenant un labyrinthe d'une certaine couleur
@@ -54,12 +53,12 @@ public:
 	//! 4- On sort de ajoutePieceLabyrinthe() et ChargerLabyrinthe() fait quelques opérations pour ensuite appeler ajoutePassage()
 	//! 5- ajoutePassage() ajoute les portes à la pièce qui à été préalablement créée ou qui existait déjà
 	//! 6- La pièce et les portes sont créées et on passe à une autre pièce
-	void chargeLabyrinthe(Couleur couleur, std::ifstream & entree);
+	void chargeLabyrinthe(Couleur couleur, std::ifstream &entree);
 
 	//! Cette fonction doit ajouter la pièce p à un labyrinthe. Dans le cas où
 	//! une pièce du labyrinthe porte déjà un même nom, la méthode ne doit
 	//! rien faire (faire un simple return, sans générer d'exception).
-	void ajoutePieceLabyrinthe(const Piece & p);
+	void ajoutePieceLabyrinthe(const Piece &p);
 
 	//! Cette méthode doit solutionner un labyrinthe pour le joueur spécifié par joueur.
 	//! Elle doit donc trouver en combien d'étapes au minimum le joueur spécifié peut solutionner
@@ -96,16 +95,15 @@ public:
 	Couleur trouveGagnant();
 
 	//! Accesseur pour le membre depart
-	Piece* getDepart() const {return depart;}
+	Piece *getDepart() const { return depart; }
 
 	//! Accesseur pour le membre arrivee
-	Piece*  getArrivee() const {return arrivee;}
+	Piece *getArrivee() const { return arrivee; }
 
 	//! Vérifie si une pièce portant le nom de la pièce fournie se trouve dans le labyrinthe
-	bool appartient(const Piece & p) const;
+	bool appartient(const Piece &p) const;
 
 private:
-
 	//! Méthode privée fournie dans le fichier Labyrinthe.cpp, elle ajoute un passage
 	//! dans un labyrinthe. Elle est appelée par la méthode chargeLabyrinthe()
 	void ajoutePassage(Couleur couleur, int i1, int j1, int i2, int j2);
@@ -113,39 +111,53 @@ private:
 	//! Méthode privée, elle sert pour charger un labyrinthe. Ajuste le pointeur depart d'un labyrinthe
 	//! pour qu'il contienne l'adresse de la pièce correspondant au nom spécifié par nom. Lancer une
 	//! exception logic_error si aucune pièce du labyrinthe ne porte le nom nom.
-	void placeDepart(const std::string & nom);
+	void placeDepart(const std::string &nom);
 
 	//! Même chose que pour la fonction placeDepart décrite plus haut, mais pour le pointeur arrivee d'un labyrinthe.
-	void placeArrivee(const std::string & nom);
-
-    /**
+	void placeArrivee(const std::string &nom);
+	void _copier(const Labyrinthe &source);
+	/**
      * \class NoeudListePieces
      * \brief Noeud typique d'une liste chaînée circulaire
      */
-    class NoeudListePieces
+	class NoeudListePieces
 	{
-		public:
+	public:
+		Piece piece; //!< La piece contenue dans un noeud d'une liste chaînée circulaire.
 
-			Piece piece; //!< La piece contenue dans un noeud d'une liste chaînée circulaire.
-
-			NoeudListePieces *suivant = nullptr; //!< Le noeud suivant
+		NoeudListePieces *suivant = nullptr; //!< Le noeud suivant
 	};
-
 
 	//! Méthode privée. Retourne l'adresse du noeud de la liste de pièces contenue dans le labyrinthe
 	//! qui correspond à la pièce portant le nom nom, la méthode doit lancer une exception invalid_argument si le nom de
 	//! la pièce est vide. La méthode doit lancer également une exception logic_error si la pièce est introuvable.
 	//! Remarquez qu'il faut retourner l'adresse du noeud et non l'adresse de la pièce.
-	NoeudListePieces * trouvePiece(const std::string & nom) const;
+	NoeudListePieces *trouvePiece(const std::string &nom) const;
 
-	NoeudListePieces * dernier; /*!< Le dernier noeud de la liste chaînée circulaire.*/
+	NoeudListePieces *dernier; /*!< Le dernier noeud de la liste chaînée circulaire.*/
 	/*!<  Ce noeuds ne contient pas nécessairement les pièces de départ ou d'arrivée. */
 
-	Piece * depart; /*!< Adresse de la pièce de départ (et non du noeud qui la contient) */
-	Piece * arrivee; /*!< Adresse de la pièce d'arrivée (et non du noeud qui la contient) */
+	Piece *depart;  /*!< Adresse de la pièce de départ (et non du noeud qui la contient) */
+	Piece *arrivee; /*!< Adresse de la pièce d'arrivée (et non du noeud qui la contient) */
+public:
+	class iterator
+	{
+	public:
+		iterator();
+		Piece &operator*();
+		const Piece &operator*() const;
+		iterator &operator++();
+		iterator operator++(int);
+		bool operator==(const iterator &rhs) const;
+		bool operator!=(const iterator &rhs) const;
 
+	private:
+		NoeudListePieces *current;
+		iterator(NoeudListePieces *p);
+		friend class Labyrinthe;
+	};
 };
 
-}
+} // namespace TP1
 
 #endif /* LABYRINTHE_H_ */

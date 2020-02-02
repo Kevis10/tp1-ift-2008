@@ -1,0 +1,51 @@
+Start testing: Feb 02 10:35 EST
+----------------------------------------------------------
+Unable to find executable: test_labyrinthe
+1/3 Testing: test_labyrinthe
+1/3 Test: test_labyrinthe
+Command: ""
+Directory: /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/test
+"test_labyrinthe" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test_labyrinthe" end time: Feb 02 10:35 EST
+"test_labyrinthe" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: test_piece
+2/3 Testing: test_piece
+2/3 Test: test_piece
+Command: ""
+Directory: /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/test
+"test_piece" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test_piece" end time: Feb 02 10:35 EST
+"test_piece" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: test_porte
+3/3 Testing: test_porte
+3/3 Test: test_porte
+Command: ""
+Directory: /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/test
+"test_porte" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test_porte" end time: Feb 02 10:35 EST
+"test_porte" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 02 10:35 EST

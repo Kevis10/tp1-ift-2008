@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles/gtest-target"
+		},
+		{
+			"file" : "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles/gtest-target.rule"
+		},
+		{
+			"file" : "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles/gtest-target-complete.rule"
+		},
+		{
+			"file" : "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-install.rule"
+		},
+		{
+			"file" : "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-mkdir.rule"
+		},
+		{
+			"file" : "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-download.rule"
+		},
+		{
+			"file" : "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-update.rule"
+		},
+		{
+			"file" : "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-patch.rule"
+		},
+		{
+			"file" : "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-configure.rule"
+		},
+		{
+			"file" : "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"gtest-target"
+		],
+		"name" : "gtest-target"
+	}
+}
