@@ -156,6 +156,7 @@ public:
 		iterator(NoeudListePieces *p);
 		friend class Labyrinthe;
 	};
+	NoeudListePieces getDernier() const { return *dernier; };
 };
 
 } // namespace TP1

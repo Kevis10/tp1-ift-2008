@@ -47,12 +47,25 @@ const Piece &Labyrinthe::iterator::operator*() const
 {
 	return current->piece;
 }
-iterator &Labyrinthe::iterator::operator++()
+Labyrinthe::iterator &Labyrinthe::iterator::operator++()
 {
 	current = current->suivant;
 	return *this;
 }
-
+Labyrinthe::iterator Labyrinthe::iterator::operator++(int)
+{
+	iterator old = *this;
+	++(*this);
+	return old;
+}
+bool Labyrinthe::iterator::operator==(const iterator &rhs) const
+{
+	return current == rhs.current;
+}
+bool Labyrinthe::iterator::operator!=(const iterator &rhs) const
+{
+	return current != rhs.current;
+}
 // -------------------------------------------------------------------------------------------------
 //	Méthodes fournies
 // -------------------------------------------------------------------------------------------------
