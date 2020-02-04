@@ -19,7 +19,7 @@ namespace TP1
 	 * \fn Labyrinthe::Labyrinthe()
 	* constructeur de la classe declare le dernier,le depart et l'arrier a un pointeur nulle
 */
-Labyrinthe::Labyrinthe() : depart(nullptr), arrivee(nullptr), dernier(nullptr)
+Labyrinthe::Labyrinthe() : depart(nullptr), arrivee(nullptr), dernier(nullptr), size(0)
 {
 }
 Labyrinthe::Labyrinthe(const Labyrinthe &source)
@@ -29,14 +29,26 @@ Labyrinthe::Labyrinthe(const Labyrinthe &source)
 }
 void Labyrinthe::_copier(const Labyrinthe &source)
 {
-	NoeudListePieces *el = source.dernier;
-	do
+	size = source.getSize();
+	dernier = new NoeudListePieces;
+	dernier->piece = Piece(source.getDernier().piece);
+	NoeudListePieces *courant = dernier->suivant;
+	for (iterator it = source.getDernier().suivant; it != &source.getDernier(); it++)
 	{
-		/* code */
-		el->suivant;
-	} while (el != dernier);
+
+		courant = new NoeudListePieces;
+		courant->piece = Piece(it.current->piece);
+		courant = courant->suivant;
+	}
 }
-Labyrinthe::iterator::iterator() : current(nullptr)
+// -------------------------------------------------------------------------------------------------
+//	Méthodes iterateur
+// -------------------------------------------------------------------------------------------------
+
+Labyrinthe::iterator::iterator() : current(nullptr), firstElement(nullptr), looped(true)
+{
+}
+Labyrinthe::iterator::iterator(NoeudListePieces *p) : current(p), firstElement(p), looped(false)
 {
 }
 Piece &Labyrinthe::iterator::operator*()
@@ -50,12 +62,14 @@ const Piece &Labyrinthe::iterator::operator*() const
 Labyrinthe::iterator &Labyrinthe::iterator::operator++()
 {
 	current = current->suivant;
+	looped = current == firstElement;
 	return *this;
 }
 Labyrinthe::iterator Labyrinthe::iterator::operator++(int)
 {
 	iterator old = *this;
 	++(*this);
+	looped = current == firstElement;
 	return old;
 }
 bool Labyrinthe::iterator::operator==(const iterator &rhs) const
@@ -65,6 +79,10 @@ bool Labyrinthe::iterator::operator==(const iterator &rhs) const
 bool Labyrinthe::iterator::operator!=(const iterator &rhs) const
 {
 	return current != rhs.current;
+}
+bool Labyrinthe::iterator::haveLooped() const
+{
+	return looped && current != firstElement;
 }
 // -------------------------------------------------------------------------------------------------
 //	Méthodes fournies
