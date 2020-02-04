@@ -159,12 +159,11 @@ public:
 	private:
 		NoeudListePieces *current;
 		NoeudListePieces *firstElement;
-		bool looped;
 		iterator(NoeudListePieces *p);
 		friend class Labyrinthe;
 	};
 	//! ascesseur de du membre
-	NoeudListePieces getDernier() const { return *dernier; };
+	NoeudListePieces* getDernier() const { return dernier; };
 };
 
 } // namespace TP1

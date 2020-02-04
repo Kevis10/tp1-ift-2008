@@ -25,15 +25,15 @@ Labyrinthe::Labyrinthe() : depart(nullptr), arrivee(nullptr), dernier(nullptr), 
 Labyrinthe::Labyrinthe(const Labyrinthe &source)
 {
 
-	_copier(source)
+	_copier(source);
 }
 void Labyrinthe::_copier(const Labyrinthe &source)
 {
 	size = source.getSize();
 	dernier = new NoeudListePieces;
-	dernier->piece = Piece(source.getDernier().piece);
+	dernier->piece = Piece(source.getDernier()->piece);
 	NoeudListePieces *courant = dernier->suivant;
-	for (iterator it = source.getDernier().suivant; it != &source.getDernier(); it++)
+	for (iterator it = source.getDernier()->suivant; !it.haveLooped(); it++)
 	{
 
 		courant = new NoeudListePieces;
@@ -45,10 +45,10 @@ void Labyrinthe::_copier(const Labyrinthe &source)
 //	Méthodes iterateur
 // -------------------------------------------------------------------------------------------------
 
-Labyrinthe::iterator::iterator() : current(nullptr), firstElement(nullptr), looped(true)
+Labyrinthe::iterator::iterator() : current(nullptr), firstElement(nullptr)
 {
 }
-Labyrinthe::iterator::iterator(NoeudListePieces *p) : current(p), firstElement(p), looped(false)
+Labyrinthe::iterator::iterator(NoeudListePieces *p) : current(p), firstElement(p)
 {
 }
 Piece &Labyrinthe::iterator::operator*()
@@ -62,14 +62,12 @@ const Piece &Labyrinthe::iterator::operator*() const
 Labyrinthe::iterator &Labyrinthe::iterator::operator++()
 {
 	current = current->suivant;
-	looped = current == firstElement;
 	return *this;
 }
 Labyrinthe::iterator Labyrinthe::iterator::operator++(int)
 {
 	iterator old = *this;
 	++(*this);
-	looped = current == firstElement;
 	return old;
 }
 bool Labyrinthe::iterator::operator==(const iterator &rhs) const
@@ -82,7 +80,7 @@ bool Labyrinthe::iterator::operator!=(const iterator &rhs) const
 }
 bool Labyrinthe::iterator::haveLooped() const
 {
-	return looped && current != firstElement;
+	return  ! (current->suivant == firstElement);
 }
 // -------------------------------------------------------------------------------------------------
 //	Méthodes fournies
