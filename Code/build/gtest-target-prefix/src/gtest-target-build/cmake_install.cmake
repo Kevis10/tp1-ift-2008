@@ -1,8 +1,8 @@
-# Install script for directory: /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target
+# Install script for directory: /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/extern")
+  set(CMAKE_INSTALL_PREFIX "/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/extern")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock/cmake_install.cmake")
+  include("/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

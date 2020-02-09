@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code
+CMAKE_SOURCE_DIR = /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build
+CMAKE_BINARY_DIR = /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build
 
 # Utility rule file for gtest-target.
 
@@ -64,53 +64,53 @@ CMakeFiles/gtest-target-complete: gtest-target-prefix/src/gtest-target-stamp/gte
 CMakeFiles/gtest-target-complete: gtest-target-prefix/src/gtest-target-stamp/gtest-target-configure
 CMakeFiles/gtest-target-complete: gtest-target-prefix/src/gtest-target-stamp/gtest-target-build
 CMakeFiles/gtest-target-complete: gtest-target-prefix/src/gtest-target-stamp/gtest-target-install
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'gtest-target'"
-	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles
-	/usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles/gtest-target-complete
-	/usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-done
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'gtest-target'"
+	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles
+	/usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles/gtest-target-complete
+	/usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-done
 
 gtest-target-prefix/src/gtest-target-stamp/gtest-target-install: gtest-target-prefix/src/gtest-target-stamp/gtest-target-build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Performing install step for 'gtest-target'"
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && $(MAKE) install
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && /usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-install
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Performing install step for 'gtest-target'"
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && $(MAKE) install
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && /usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-install
 
 gtest-target-prefix/src/gtest-target-stamp/gtest-target-mkdir:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Creating directories for 'gtest-target'"
-	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target
-	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build
-	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix
-	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/tmp
-	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp
-	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src
-	/usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-mkdir
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Creating directories for 'gtest-target'"
+	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target
+	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build
+	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix
+	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/tmp
+	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp
+	/usr/bin/cmake -E make_directory /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src
+	/usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-mkdir
 
 gtest-target-prefix/src/gtest-target-stamp/gtest-target-download: gtest-target-prefix/src/gtest-target-stamp/gtest-target-gitinfo.txt
 gtest-target-prefix/src/gtest-target-stamp/gtest-target-download: gtest-target-prefix/src/gtest-target-stamp/gtest-target-mkdir
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (git clone) for 'gtest-target'"
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src && /usr/bin/cmake -P /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/tmp/gtest-target-gitclone.cmake
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src && /usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-download
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Performing download step (git clone) for 'gtest-target'"
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src && /usr/bin/cmake -P /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/tmp/gtest-target-gitclone.cmake
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src && /usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-download
 
 gtest-target-prefix/src/gtest-target-stamp/gtest-target-update: gtest-target-prefix/src/gtest-target-stamp/gtest-target-download
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "No update step for 'gtest-target'"
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target && /usr/bin/cmake -E echo_append
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target && /usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-update
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "No update step for 'gtest-target'"
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target && /usr/bin/cmake -E echo_append
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target && /usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-update
 
 gtest-target-prefix/src/gtest-target-stamp/gtest-target-patch: gtest-target-prefix/src/gtest-target-stamp/gtest-target-download
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "No patch step for 'gtest-target'"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "No patch step for 'gtest-target'"
 	/usr/bin/cmake -E echo_append
-	/usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-patch
+	/usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-patch
 
 gtest-target-prefix/src/gtest-target-stamp/gtest-target-configure: gtest-target-prefix/tmp/gtest-target-cfgcmd.txt
 gtest-target-prefix/src/gtest-target-stamp/gtest-target-configure: gtest-target-prefix/src/gtest-target-stamp/gtest-target-update
 gtest-target-prefix/src/gtest-target-stamp/gtest-target-configure: gtest-target-prefix/src/gtest-target-stamp/gtest-target-patch
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Performing configure step for 'gtest-target'"
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && /usr/bin/cmake -DCMAKE_INSTALL_PREFIX=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/extern "-GUnix Makefiles" /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && /usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-configure
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Performing configure step for 'gtest-target'"
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && /usr/bin/cmake -DCMAKE_INSTALL_PREFIX=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/extern "-GUnix Makefiles" /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && /usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-configure
 
 gtest-target-prefix/src/gtest-target-stamp/gtest-target-build: gtest-target-prefix/src/gtest-target-stamp/gtest-target-configure
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Performing build step for 'gtest-target'"
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && $(MAKE)
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && /usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Performing build step for 'gtest-target'"
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && $(MAKE)
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && /usr/bin/cmake -E touch /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-stamp/gtest-target-build
 
 gtest-target: CMakeFiles/gtest-target
 gtest-target: CMakeFiles/gtest-target-complete
@@ -135,6 +135,6 @@ CMakeFiles/gtest-target.dir/clean:
 .PHONY : CMakeFiles/gtest-target.dir/clean
 
 CMakeFiles/gtest-target.dir/depend:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles/gtest-target.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles/gtest-target.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/gtest-target.dir/depend
 

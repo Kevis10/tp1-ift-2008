@@ -7,10 +7,8 @@
  *
  */
 
-
 #ifndef PORTE_H_
 #define PORTE_H_
-
 
 namespace TP1
 {
@@ -21,12 +19,18 @@ namespace TP1
  * Elle peut prendre 5 valeurs : Rouge, Bleu, Jaune ou Vert ainsi que la
  * valeur "Aucun" qui est une valeur spéciale utilisée dans la fonction "trouveGagnant".
  */
-	enum class Couleur { Rouge, Vert, Bleu, Jaune, Aucun };
+enum class Couleur
+{
+	Rouge,
+	Vert,
+	Bleu,
+	Jaune,
+	Aucun
+};
 
 //! La ligne qui suit sert à signifier au compilateur que la classe "Piece" existe.
 //! On le fait, car la structure "Porte" comporte des pointeurs vers la classe "Piece", et vice versa.
 class Piece;
-
 
 /**
  * \class Porte
@@ -35,40 +39,38 @@ class Piece;
 class Porte
 {
 public:
-
 	//! Constructeur par défaut
 	Porte();
 
 	//! Constructeur, en argument la couleur de la porte ainsi que la pièce de destination
-	Porte(Couleur c, Piece * d);
+	Porte(Couleur c, Piece *d);
 
 	//! Constructeur de copie
-	Porte(const Porte&);
+	Porte(const Porte &);
+
 
 	//! Un destructeur qui ne fera rien
 	~Porte();
 
 	//! Surcharge de l'opérateur =
-	const Porte & operator =(const Porte& source);
+	const Porte &operator=(const Porte &source);
 
 	//! Surcharge de l'opérateur ==
-	bool operator ==(const Porte& source) const;
+	bool operator==(const Porte &source) const;
 
 	//! Accesseur de la couleur d'une porte
 	Couleur getCouleur() const;
 
 	//! Accesseur de la piece de destination
-	Piece * getDestination() const;
-
+	Piece *getDestination() const;
 
 private:
-	Piece * destination; /*!< Vers où la porte mène.*/
+	Piece *destination; /*!< Vers où la porte mène.*/
 
 	Couleur color; /*!< Couleur de la porte.*/
-	/*!< Cette couleur spécifie en même temps quel est le joueur qui a le droit de franchir cette porte.*/
-
+				   /*!< Cette couleur spécifie en même temps quel est le joueur qui a le droit de franchir cette porte.*/
 };
 
-}
+} // namespace TP1
 
 #endif /* PORTE_H_ */

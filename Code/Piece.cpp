@@ -11,7 +11,22 @@
 
 namespace TP1
 {
-
-	//Mettez l'implémentation de vos méthodes ici.
-
+/**
+ * \fn Piece::Piece()
+ * constructeur par default de la piece parcourue est faux, le nom est un chiffre aleatoire 
+ * (aucune garantit que se nom soit unique) et la distance vers le debut est de 0
+ */
+Piece::Piece() : parcourue(false), nom(std::to_string(std::rand())), distanceDuDebut(0)
+{
 }
+/**
+ * Piece::~Piece()
+ * destucteur de l'instance
+ */
+Piece::~Piece()
+{
+}
+
+//Mettez l'implémentation de vos méthodes ici.
+
+} // namespace TP1

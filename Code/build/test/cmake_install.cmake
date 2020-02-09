@@ -1,4 +1,4 @@
-# Install script for directory: /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/test
+# Install script for directory: /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

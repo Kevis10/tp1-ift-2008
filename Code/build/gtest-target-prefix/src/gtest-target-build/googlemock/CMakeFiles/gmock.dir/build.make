@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target
+CMAKE_SOURCE_DIR = /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build
+CMAKE_BINARY_DIR = /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build
 
 # Include any dependencies generated for this target.
 include googlemock/CMakeFiles/gmock.dir/depend.make
@@ -58,17 +58,17 @@ include googlemock/CMakeFiles/gmock.dir/progress.make
 include googlemock/CMakeFiles/gmock.dir/flags.make
 
 googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: googlemock/CMakeFiles/gmock.dir/flags.make
-googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock/src/gmock-all.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock/src/gmock-all.cc
+googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock/src/gmock-all.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock/src/gmock-all.cc
 
 googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gmock.dir/src/gmock-all.cc.i"
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock/src/gmock-all.cc > CMakeFiles/gmock.dir/src/gmock-all.cc.i
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock/src/gmock-all.cc > CMakeFiles/gmock.dir/src/gmock-all.cc.i
 
 googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gmock.dir/src/gmock-all.cc.s"
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock/src/gmock-all.cc -o CMakeFiles/gmock.dir/src/gmock-all.cc.s
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock/src/gmock-all.cc -o CMakeFiles/gmock.dir/src/gmock-all.cc.s
 
 googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.requires:
 
@@ -91,9 +91,9 @@ gmock_EXTERNAL_OBJECTS =
 lib/libgmock.a: googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
 lib/libgmock.a: googlemock/CMakeFiles/gmock.dir/build.make
 lib/libgmock.a: googlemock/CMakeFiles/gmock.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ../lib/libgmock.a"
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock.dir/cmake_clean_target.cmake
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gmock.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ../lib/libgmock.a"
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock.dir/cmake_clean_target.cmake
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gmock.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 googlemock/CMakeFiles/gmock.dir/build: lib/libgmock.a
@@ -105,10 +105,10 @@ googlemock/CMakeFiles/gmock.dir/requires: googlemock/CMakeFiles/gmock.dir/src/gm
 .PHONY : googlemock/CMakeFiles/gmock.dir/requires
 
 googlemock/CMakeFiles/gmock.dir/clean:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock.dir/cmake_clean.cmake
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock.dir/cmake_clean.cmake
 .PHONY : googlemock/CMakeFiles/gmock.dir/clean
 
 googlemock/CMakeFiles/gmock.dir/depend:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : googlemock/CMakeFiles/gmock.dir/depend
 

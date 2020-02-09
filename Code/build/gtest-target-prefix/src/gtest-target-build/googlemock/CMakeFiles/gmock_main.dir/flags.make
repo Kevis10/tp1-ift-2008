@@ -6,5 +6,5 @@ CXX_FLAGS =   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREA
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -isystem /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock/include -isystem /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock -isystem /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googletest/include -isystem /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googletest 
+CXX_INCLUDES = -isystem /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock/include -isystem /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock -isystem /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googletest/include -isystem /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googletest 
 

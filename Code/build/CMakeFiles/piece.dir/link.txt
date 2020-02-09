@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpiece.a  CMakeFiles/piece.dir/Porte.cpp.o
+/usr/bin/ranlib libpiece.a

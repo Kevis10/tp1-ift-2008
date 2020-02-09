@@ -54,10 +54,47 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code
+CMAKE_SOURCE_DIR = /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build
+CMAKE_BINARY_DIR = /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build
+
+#=============================================================================
+# Target rules for target CMakeFiles/porte.dir
+
+# All Build rule for target.
+CMakeFiles/porte.dir/all:
+	$(MAKE) -f CMakeFiles/porte.dir/build.make CMakeFiles/porte.dir/depend
+	$(MAKE) -f CMakeFiles/porte.dir/build.make CMakeFiles/porte.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=11,12 "Built target porte"
+.PHONY : CMakeFiles/porte.dir/all
+
+# Include target in all.
+all: CMakeFiles/porte.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/porte.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/porte.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles 0
+.PHONY : CMakeFiles/porte.dir/rule
+
+# Convenience name for target.
+porte: CMakeFiles/porte.dir/rule
+
+.PHONY : porte
+
+# clean rule for target.
+CMakeFiles/porte.dir/clean:
+	$(MAKE) -f CMakeFiles/porte.dir/build.make CMakeFiles/porte.dir/clean
+.PHONY : CMakeFiles/porte.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/porte.dir/clean
+
+.PHONY : clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/gtest-target.dir
@@ -66,7 +103,7 @@ CMAKE_BINARY_DIR = /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/bui
 CMakeFiles/gtest-target.dir/all:
 	$(MAKE) -f CMakeFiles/gtest-target.dir/build.make CMakeFiles/gtest-target.dir/depend
 	$(MAKE) -f CMakeFiles/gtest-target.dir/build.make CMakeFiles/gtest-target.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=6,7,8,9,10,11,12,13 "Built target gtest-target"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target gtest-target"
 .PHONY : CMakeFiles/gtest-target.dir/all
 
 # Include target in all.
@@ -76,9 +113,9 @@ all: CMakeFiles/gtest-target.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/gtest-target.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/gtest-target.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles 0
 .PHONY : CMakeFiles/gtest-target.dir/rule
 
 # Convenience name for target.
@@ -97,39 +134,39 @@ clean: CMakeFiles/gtest-target.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/CodeTP.dir
+# Target rules for target CMakeFiles/piece.dir
 
 # All Build rule for target.
-CMakeFiles/CodeTP.dir/all:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/depend
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target CodeTP"
-.PHONY : CMakeFiles/CodeTP.dir/all
+CMakeFiles/piece.dir/all:
+	$(MAKE) -f CMakeFiles/piece.dir/build.make CMakeFiles/piece.dir/depend
+	$(MAKE) -f CMakeFiles/piece.dir/build.make CMakeFiles/piece.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=9,10 "Built target piece"
+.PHONY : CMakeFiles/piece.dir/all
 
 # Include target in all.
-all: CMakeFiles/CodeTP.dir/all
+all: CMakeFiles/piece.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/CodeTP.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles 5
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/CodeTP.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles 0
-.PHONY : CMakeFiles/CodeTP.dir/rule
+CMakeFiles/piece.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/piece.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles 0
+.PHONY : CMakeFiles/piece.dir/rule
 
 # Convenience name for target.
-CodeTP: CMakeFiles/CodeTP.dir/rule
+piece: CMakeFiles/piece.dir/rule
 
-.PHONY : CodeTP
-
-# clean rule for target.
-CMakeFiles/CodeTP.dir/clean:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/clean
-.PHONY : CMakeFiles/CodeTP.dir/clean
+.PHONY : piece
 
 # clean rule for target.
-clean: CMakeFiles/CodeTP.dir/clean
+CMakeFiles/piece.dir/clean:
+	$(MAKE) -f CMakeFiles/piece.dir/build.make CMakeFiles/piece.dir/clean
+.PHONY : CMakeFiles/piece.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/piece.dir/clean
 
 .PHONY : clean
 
@@ -137,15 +174,11 @@ clean: CMakeFiles/CodeTP.dir/clean
 # Directory level rules for directory test
 
 # Convenience name for "all" pass in the directory.
-test/all: test/CMakeFiles/test_piece.dir/all
-test/all: test/CMakeFiles/test_labyrinthe.dir/all
 test/all: test/CMakeFiles/test_porte.dir/all
 
 .PHONY : test/all
 
 # Convenience name for "clean" pass in the directory.
-test/clean: test/CMakeFiles/test_piece.dir/clean
-test/clean: test/CMakeFiles/test_labyrinthe.dir/clean
 test/clean: test/CMakeFiles/test_porte.dir/clean
 
 .PHONY : test/clean
@@ -156,87 +189,14 @@ test/preinstall:
 .PHONY : test/preinstall
 
 #=============================================================================
-# Target rules for target test/CMakeFiles/test_piece.dir
-
-# All Build rule for target.
-test/CMakeFiles/test_piece.dir/all:
-	$(MAKE) -f test/CMakeFiles/test_piece.dir/build.make test/CMakeFiles/test_piece.dir/depend
-	$(MAKE) -f test/CMakeFiles/test_piece.dir/build.make test/CMakeFiles/test_piece.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=16,17 "Built target test_piece"
-.PHONY : test/CMakeFiles/test_piece.dir/all
-
-# Include target in all.
-all: test/CMakeFiles/test_piece.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-test/CMakeFiles/test_piece.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_piece.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles 0
-.PHONY : test/CMakeFiles/test_piece.dir/rule
-
-# Convenience name for target.
-test_piece: test/CMakeFiles/test_piece.dir/rule
-
-.PHONY : test_piece
-
-# clean rule for target.
-test/CMakeFiles/test_piece.dir/clean:
-	$(MAKE) -f test/CMakeFiles/test_piece.dir/build.make test/CMakeFiles/test_piece.dir/clean
-.PHONY : test/CMakeFiles/test_piece.dir/clean
-
-# clean rule for target.
-clean: test/CMakeFiles/test_piece.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target test/CMakeFiles/test_labyrinthe.dir
-
-# All Build rule for target.
-test/CMakeFiles/test_labyrinthe.dir/all:
-	$(MAKE) -f test/CMakeFiles/test_labyrinthe.dir/build.make test/CMakeFiles/test_labyrinthe.dir/depend
-	$(MAKE) -f test/CMakeFiles/test_labyrinthe.dir/build.make test/CMakeFiles/test_labyrinthe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=14,15 "Built target test_labyrinthe"
-.PHONY : test/CMakeFiles/test_labyrinthe.dir/all
-
-# Include target in all.
-all: test/CMakeFiles/test_labyrinthe.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-test/CMakeFiles/test_labyrinthe.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_labyrinthe.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles 0
-.PHONY : test/CMakeFiles/test_labyrinthe.dir/rule
-
-# Convenience name for target.
-test_labyrinthe: test/CMakeFiles/test_labyrinthe.dir/rule
-
-.PHONY : test_labyrinthe
-
-# clean rule for target.
-test/CMakeFiles/test_labyrinthe.dir/clean:
-	$(MAKE) -f test/CMakeFiles/test_labyrinthe.dir/build.make test/CMakeFiles/test_labyrinthe.dir/clean
-.PHONY : test/CMakeFiles/test_labyrinthe.dir/clean
-
-# clean rule for target.
-clean: test/CMakeFiles/test_labyrinthe.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target test/CMakeFiles/test_porte.dir
 
 # All Build rule for target.
-test/CMakeFiles/test_porte.dir/all:
+test/CMakeFiles/test_porte.dir/all: CMakeFiles/piece.dir/all
+test/CMakeFiles/test_porte.dir/all: CMakeFiles/porte.dir/all
 	$(MAKE) -f test/CMakeFiles/test_porte.dir/build.make test/CMakeFiles/test_porte.dir/depend
 	$(MAKE) -f test/CMakeFiles/test_porte.dir/build.make test/CMakeFiles/test_porte.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=18,19 "Built target test_porte"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles --progress-num=13,14 "Built target test_porte"
 .PHONY : test/CMakeFiles/test_porte.dir/all
 
 # Include target in all.
@@ -246,9 +206,9 @@ all: test/CMakeFiles/test_porte.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_porte.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_porte.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles 0
 .PHONY : test/CMakeFiles/test_porte.dir/rule
 
 # Convenience name for target.

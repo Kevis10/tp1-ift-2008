@@ -52,9 +52,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/porte.dir/DependInfo.cmake"
   "CMakeFiles/gtest-target.dir/DependInfo.cmake"
-  "CMakeFiles/CodeTP.dir/DependInfo.cmake"
-  "test/CMakeFiles/test_piece.dir/DependInfo.cmake"
-  "test/CMakeFiles/test_labyrinthe.dir/DependInfo.cmake"
+  "CMakeFiles/piece.dir/DependInfo.cmake"
   "test/CMakeFiles/test_porte.dir/DependInfo.cmake"
   )

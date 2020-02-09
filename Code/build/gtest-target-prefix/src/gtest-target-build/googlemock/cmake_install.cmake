@@ -1,8 +1,8 @@
-# Install script for directory: /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock
+# Install script for directory: /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/extern")
+  set(CMAKE_INSTALL_PREFIX "/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/extern")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,28 +38,28 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target/googlemock/include/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/lib/libgmock.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/lib/libgmock.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/lib/libgmock_main.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/lib/libgmock_main.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googletest/generated/gmock.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googletest/generated/gmock.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googletest/generated/gmock_main.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googletest/generated/gmock_main.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googletest/cmake_install.cmake")
+  include("/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/gtest-target-prefix/src/gtest-target-build/googletest/cmake_install.cmake")
 
 endif()
 

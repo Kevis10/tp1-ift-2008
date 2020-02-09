@@ -48,13 +48,24 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code
+CMAKE_SOURCE_DIR = /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build
+CMAKE_BINARY_DIR = /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -78,27 +89,16 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # The main all target
 all: cmake_check_build_system
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/test/CMakeFiles/progress.marks
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f CMakeFiles/Makefile2 test/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles 0
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/test/CMakeFiles/progress.marks
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(MAKE) -f CMakeFiles/Makefile2 test/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f CMakeFiles/Makefile2 test/clean
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(MAKE) -f CMakeFiles/Makefile2 test/clean
 .PHONY : clean
 
 # The main clean target
@@ -108,52 +108,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
-test/CMakeFiles/test_piece.dir/rule:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_piece.dir/rule
-.PHONY : test/CMakeFiles/test_piece.dir/rule
-
-# Convenience name for target.
-test_piece: test/CMakeFiles/test_piece.dir/rule
-
-.PHONY : test_piece
-
-# fast build rule for target.
-test_piece/fast:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_piece.dir/build.make test/CMakeFiles/test_piece.dir/build
-.PHONY : test_piece/fast
-
-# Convenience name for target.
-test/CMakeFiles/test_labyrinthe.dir/rule:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_labyrinthe.dir/rule
-.PHONY : test/CMakeFiles/test_labyrinthe.dir/rule
-
-# Convenience name for target.
-test_labyrinthe: test/CMakeFiles/test_labyrinthe.dir/rule
-
-.PHONY : test_labyrinthe
-
-# fast build rule for target.
-test_labyrinthe/fast:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_labyrinthe.dir/build.make test/CMakeFiles/test_labyrinthe.dir/build
-.PHONY : test_labyrinthe/fast
-
-# Convenience name for target.
 test/CMakeFiles/test_porte.dir/rule:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_porte.dir/rule
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_porte.dir/rule
 .PHONY : test/CMakeFiles/test_porte.dir/rule
 
 # Convenience name for target.
@@ -163,62 +133,8 @@ test_porte: test/CMakeFiles/test_porte.dir/rule
 
 # fast build rule for target.
 test_porte/fast:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_porte.dir/build.make test/CMakeFiles/test_porte.dir/build
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_porte.dir/build.make test/CMakeFiles/test_porte.dir/build
 .PHONY : test_porte/fast
-
-test_labyrinthe.o: test_labyrinthe.cpp.o
-
-.PHONY : test_labyrinthe.o
-
-# target to build an object file
-test_labyrinthe.cpp.o:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_labyrinthe.dir/build.make test/CMakeFiles/test_labyrinthe.dir/test_labyrinthe.cpp.o
-.PHONY : test_labyrinthe.cpp.o
-
-test_labyrinthe.i: test_labyrinthe.cpp.i
-
-.PHONY : test_labyrinthe.i
-
-# target to preprocess a source file
-test_labyrinthe.cpp.i:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_labyrinthe.dir/build.make test/CMakeFiles/test_labyrinthe.dir/test_labyrinthe.cpp.i
-.PHONY : test_labyrinthe.cpp.i
-
-test_labyrinthe.s: test_labyrinthe.cpp.s
-
-.PHONY : test_labyrinthe.s
-
-# target to generate assembly for a file
-test_labyrinthe.cpp.s:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_labyrinthe.dir/build.make test/CMakeFiles/test_labyrinthe.dir/test_labyrinthe.cpp.s
-.PHONY : test_labyrinthe.cpp.s
-
-test_piece.o: test_piece.cpp.o
-
-.PHONY : test_piece.o
-
-# target to build an object file
-test_piece.cpp.o:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_piece.dir/build.make test/CMakeFiles/test_piece.dir/test_piece.cpp.o
-.PHONY : test_piece.cpp.o
-
-test_piece.i: test_piece.cpp.i
-
-.PHONY : test_piece.i
-
-# target to preprocess a source file
-test_piece.cpp.i:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_piece.dir/build.make test/CMakeFiles/test_piece.dir/test_piece.cpp.i
-.PHONY : test_piece.cpp.i
-
-test_piece.s: test_piece.cpp.s
-
-.PHONY : test_piece.s
-
-# target to generate assembly for a file
-test_piece.cpp.s:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_piece.dir/build.make test/CMakeFiles/test_piece.dir/test_piece.cpp.s
-.PHONY : test_piece.cpp.s
 
 test_porte.o: test_porte.cpp.o
 
@@ -226,7 +142,7 @@ test_porte.o: test_porte.cpp.o
 
 # target to build an object file
 test_porte.cpp.o:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_porte.dir/build.make test/CMakeFiles/test_porte.dir/test_porte.cpp.o
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_porte.dir/build.make test/CMakeFiles/test_porte.dir/test_porte.cpp.o
 .PHONY : test_porte.cpp.o
 
 test_porte.i: test_porte.cpp.i
@@ -235,7 +151,7 @@ test_porte.i: test_porte.cpp.i
 
 # target to preprocess a source file
 test_porte.cpp.i:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_porte.dir/build.make test/CMakeFiles/test_porte.dir/test_porte.cpp.i
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_porte.dir/build.make test/CMakeFiles/test_porte.dir/test_porte.cpp.i
 .PHONY : test_porte.cpp.i
 
 test_porte.s: test_porte.cpp.s
@@ -244,7 +160,7 @@ test_porte.s: test_porte.cpp.s
 
 # target to generate assembly for a file
 test_porte.cpp.s:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_porte.dir/build.make test/CMakeFiles/test_porte.dir/test_porte.cpp.s
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(MAKE) -f test/CMakeFiles/test_porte.dir/build.make test/CMakeFiles/test_porte.dir/test_porte.cpp.s
 .PHONY : test_porte.cpp.s
 
 # Help Target
@@ -253,18 +169,10 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
-	@echo "... test_piece"
-	@echo "... test"
-	@echo "... test_labyrinthe"
-	@echo "... test_porte"
 	@echo "... edit_cache"
-	@echo "... test_labyrinthe.o"
-	@echo "... test_labyrinthe.i"
-	@echo "... test_labyrinthe.s"
-	@echo "... test_piece.o"
-	@echo "... test_piece.i"
-	@echo "... test_piece.s"
+	@echo "... rebuild_cache"
+	@echo "... test_porte"
+	@echo "... test"
 	@echo "... test_porte.o"
 	@echo "... test_porte.i"
 	@echo "... test_porte.s"
@@ -279,6 +187,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

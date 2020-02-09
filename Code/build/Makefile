@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code
+CMAKE_SOURCE_DIR = /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build
+CMAKE_BINARY_DIR = /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,17 +67,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -89,11 +78,22 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -122,6 +122,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named porte
+
+# Build rule for target.
+porte: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 porte
+.PHONY : porte
+
+# fast build rule for target.
+porte/fast:
+	$(MAKE) -f CMakeFiles/porte.dir/build.make CMakeFiles/porte.dir/build
+.PHONY : porte/fast
+
+#=============================================================================
 # Target rules for targets named gtest-target
 
 # Build rule for target.
@@ -135,43 +148,17 @@ gtest-target/fast:
 .PHONY : gtest-target/fast
 
 #=============================================================================
-# Target rules for targets named CodeTP
+# Target rules for targets named piece
 
 # Build rule for target.
-CodeTP: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 CodeTP
-.PHONY : CodeTP
+piece: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 piece
+.PHONY : piece
 
 # fast build rule for target.
-CodeTP/fast:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/build
-.PHONY : CodeTP/fast
-
-#=============================================================================
-# Target rules for targets named test_piece
-
-# Build rule for target.
-test_piece: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_piece
-.PHONY : test_piece
-
-# fast build rule for target.
-test_piece/fast:
-	$(MAKE) -f test/CMakeFiles/test_piece.dir/build.make test/CMakeFiles/test_piece.dir/build
-.PHONY : test_piece/fast
-
-#=============================================================================
-# Target rules for targets named test_labyrinthe
-
-# Build rule for target.
-test_labyrinthe: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_labyrinthe
-.PHONY : test_labyrinthe
-
-# fast build rule for target.
-test_labyrinthe/fast:
-	$(MAKE) -f test/CMakeFiles/test_labyrinthe.dir/build.make test/CMakeFiles/test_labyrinthe.dir/build
-.PHONY : test_labyrinthe/fast
+piece/fast:
+	$(MAKE) -f CMakeFiles/piece.dir/build.make CMakeFiles/piece.dir/build
+.PHONY : piece/fast
 
 #=============================================================================
 # Target rules for targets named test_porte
@@ -186,67 +173,14 @@ test_porte/fast:
 	$(MAKE) -f test/CMakeFiles/test_porte.dir/build.make test/CMakeFiles/test_porte.dir/build
 .PHONY : test_porte/fast
 
-Labyrinthe.o: Labyrinthe.cpp.o
-
-.PHONY : Labyrinthe.o
-
-# target to build an object file
-Labyrinthe.cpp.o:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/Labyrinthe.cpp.o
-.PHONY : Labyrinthe.cpp.o
-
-Labyrinthe.i: Labyrinthe.cpp.i
-
-.PHONY : Labyrinthe.i
-
-# target to preprocess a source file
-Labyrinthe.cpp.i:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/Labyrinthe.cpp.i
-.PHONY : Labyrinthe.cpp.i
-
-Labyrinthe.s: Labyrinthe.cpp.s
-
-.PHONY : Labyrinthe.s
-
-# target to generate assembly for a file
-Labyrinthe.cpp.s:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/Labyrinthe.cpp.s
-.PHONY : Labyrinthe.cpp.s
-
-Piece.o: Piece.cpp.o
-
-.PHONY : Piece.o
-
-# target to build an object file
-Piece.cpp.o:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/Piece.cpp.o
-.PHONY : Piece.cpp.o
-
-Piece.i: Piece.cpp.i
-
-.PHONY : Piece.i
-
-# target to preprocess a source file
-Piece.cpp.i:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/Piece.cpp.i
-.PHONY : Piece.cpp.i
-
-Piece.s: Piece.cpp.s
-
-.PHONY : Piece.s
-
-# target to generate assembly for a file
-Piece.cpp.s:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/Piece.cpp.s
-.PHONY : Piece.cpp.s
-
 Porte.o: Porte.cpp.o
 
 .PHONY : Porte.o
 
 # target to build an object file
 Porte.cpp.o:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/Porte.cpp.o
+	$(MAKE) -f CMakeFiles/porte.dir/build.make CMakeFiles/porte.dir/Porte.cpp.o
+	$(MAKE) -f CMakeFiles/piece.dir/build.make CMakeFiles/piece.dir/Porte.cpp.o
 .PHONY : Porte.cpp.o
 
 Porte.i: Porte.cpp.i
@@ -255,7 +189,8 @@ Porte.i: Porte.cpp.i
 
 # target to preprocess a source file
 Porte.cpp.i:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/Porte.cpp.i
+	$(MAKE) -f CMakeFiles/porte.dir/build.make CMakeFiles/porte.dir/Porte.cpp.i
+	$(MAKE) -f CMakeFiles/piece.dir/build.make CMakeFiles/piece.dir/Porte.cpp.i
 .PHONY : Porte.cpp.i
 
 Porte.s: Porte.cpp.s
@@ -264,35 +199,9 @@ Porte.s: Porte.cpp.s
 
 # target to generate assembly for a file
 Porte.cpp.s:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/Porte.cpp.s
+	$(MAKE) -f CMakeFiles/porte.dir/build.make CMakeFiles/porte.dir/Porte.cpp.s
+	$(MAKE) -f CMakeFiles/piece.dir/build.make CMakeFiles/piece.dir/Porte.cpp.s
 .PHONY : Porte.cpp.s
-
-Principal.o: Principal.cpp.o
-
-.PHONY : Principal.o
-
-# target to build an object file
-Principal.cpp.o:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/Principal.cpp.o
-.PHONY : Principal.cpp.o
-
-Principal.i: Principal.cpp.i
-
-.PHONY : Principal.i
-
-# target to preprocess a source file
-Principal.cpp.i:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/Principal.cpp.i
-.PHONY : Principal.cpp.i
-
-Principal.s: Principal.cpp.s
-
-.PHONY : Principal.s
-
-# target to generate assembly for a file
-Principal.cpp.s:
-	$(MAKE) -f CMakeFiles/CodeTP.dir/build.make CMakeFiles/CodeTP.dir/Principal.cpp.s
-.PHONY : Principal.cpp.s
 
 # Help Target
 help:
@@ -300,26 +209,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... porte"
 	@echo "... rebuild_cache"
-	@echo "... test"
-	@echo "... edit_cache"
 	@echo "... gtest-target"
-	@echo "... CodeTP"
-	@echo "... test_piece"
-	@echo "... test_labyrinthe"
+	@echo "... edit_cache"
+	@echo "... piece"
+	@echo "... test"
 	@echo "... test_porte"
-	@echo "... Labyrinthe.o"
-	@echo "... Labyrinthe.i"
-	@echo "... Labyrinthe.s"
-	@echo "... Piece.o"
-	@echo "... Piece.i"
-	@echo "... Piece.s"
 	@echo "... Porte.o"
 	@echo "... Porte.i"
 	@echo "... Porte.s"
-	@echo "... Principal.o"
-	@echo "... Principal.i"
-	@echo "... Principal.s"
 .PHONY : help
 
 

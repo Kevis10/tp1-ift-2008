@@ -3,14 +3,6 @@ project(CodeTP)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES
-    Labyrinthe.cpp
-    Labyrinthe.h
-    Piece.cpp
-    Piece.h
-    Porte.cpp
-    Porte.h
-    Principal.cpp)
 
 option(BUILD_TESTING "build unit tests" ON)
 
@@ -32,6 +24,8 @@ if(BUILD_TESTING)
   add_subdirectory(test)
 endif()
 
+add_library(porte STATIC Porte.cpp)
+target_include_directories(porte PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-
-add_executable(CodeTP ${SOURCE_FILES})
+add_library(piece STATIC Porte.cpp)
+target_include_directories(piece PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

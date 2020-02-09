@@ -1,7 +1,2 @@
-test_labyrinthe 0 0
-test_piece 0 0
-test_porte 0 0
+test_porte 10 0.000373602
 ---
-test_labyrinthe
-test_piece
-test_porte

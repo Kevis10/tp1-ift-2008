@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/Porte.cpp
+Porte.h
+/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/Porte.h
+
+/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/Porte.h
+

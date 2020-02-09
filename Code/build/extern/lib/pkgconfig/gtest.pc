@@ -1,5 +1,5 @@
-libdir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/extern/lib
-includedir=/home/bryan/Documents/projet/universite/IFT-2008/TP1/Code/build/extern/include
+libdir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/extern/lib
+includedir=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/extern/include
 
 Name: gtest
 Description: GoogleTest (without main() function)
