@@ -1,1 +1,0 @@
-cmd='/usr/bin/cmake;-DCMAKE_INSTALL_PREFIX=/home/bryan/Documents/projet/universite/Session1/IFT-2008/TP1/Code/build/extern;-GUnix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'

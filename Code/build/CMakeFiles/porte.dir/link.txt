@@ -1,2 +1,0 @@
-/usr/bin/ar qc libporte.a  CMakeFiles/porte.dir/Porte.cpp.o
-/usr/bin/ranlib libporte.a
