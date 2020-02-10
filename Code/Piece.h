@@ -12,7 +12,8 @@
 
 #include <string>    // Pour le nom de la pièce
 #include <list>	     // Pour utiliser la liste de la STL
-
+#include <list>
+#include <iterator>
 #include "Porte.h"
 
 namespace TP1
@@ -29,16 +30,16 @@ public:
 	Piece();
 
 	//! Surcharge du constructeur
-	Piece(const std::string & nom);
+	Piece(const std::string & p_nom);
 
 	//! Constructeur de copie
-	Piece(const Piece & source);
+	Piece(const Piece & p_source);
 
     //! Destructeur
 	~Piece();
 
     //! Surcharge de l'opérateur =
-	const Piece & operator=(const Piece & source);
+	const Piece & operator=(const Piece & p_source);
 
     //! Accesseur du nom d'une pièce
 	std::string getNom() const;
@@ -47,7 +48,7 @@ public:
 	void setParcourue(bool p);
 
     //! Pour initialiser l'attribut distanceDuDebut
-	void setDistanceDuDebut(int d);
+	void setDistanceDuDebut(int p_d);
 
 	//! Accéder au membre parcourue
 	bool getParcourue() const;
@@ -59,21 +60,22 @@ public:
 	int getDistanceDuDebut() const;
 
     //! Ajouter une porte à la liste des portes qui partent de la pièce
-	void ajoutePorte(const Porte & p);
+	void ajoutePorte(const Porte & p_p);
 
+	
 private:
-	std::list<Porte> portes; /*!< Les portes qui partent de la pièce. */
+	std::list<Porte> m_portes; /*!< Les portes qui partent de la pièce. */
 	/*!< Cette liste peut ne pas contenir toutes les portes qui
 	communiquent avec la pièce. Une partie de ces portes peut être placée dans la liste de portes
 	de l'autre pièce associée à la porte.*/
 
-	bool parcourue; /*!< Indique si la pièce a été parcourue*/
+	bool m_parcourue; /*!< Indique si la pièce a été parcourue*/
 	/*!< Le champ "parcourue" sert uniquement à la méthode solutionner() de la classe labyrinthe, afin de ne pas passer
 	plusieurs fois par une même pièce et risquer de tourner en rond, et donc boucler sans fin. */
 
-	std::string nom; /*!< Le nom de la pièce. Il doit être unique pour un même labyrinthe.*/
+	std::string m_nom; /*!< Le nom de la pièce. Il doit être unique pour un même labyrinthe.*/
 
-	int distanceDuDebut; /*!< Le nombre de déplacements qu'il est nécessaire d'effectuer depuis la pièce de départ pour se rendre à cette pièce. */
+	int m_distanceDuDebut; /*!< Le nombre de déplacements qu'il est nécessaire d'effectuer depuis la pièce de départ pour se rendre à cette pièce. */
 
 };
 
