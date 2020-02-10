@@ -8,7 +8,7 @@
  */
 
 #include "Piece.h"
-
+using namespace std;
 namespace TP1
 {
 
@@ -29,20 +29,20 @@ Piece::Piece(const std::string & p_nom):m_nom(p_nom)
 //! Constructeur de copie
 Piece::Piece(const Piece & p_source):m_nom(p_source.m_nom),m_distanceDuDebut(p_source.m_distanceDuDebut),m_parcourue(p_source.m_parcourue)
 {
-	list<Porte>::const_iterator it;
+	std::list<Porte>::const_iterator it;
 	for(it=p_source.m_portes.begin();it<p_source.m_portes.end();++it)
 	{
-		ajoutePorte(**it);
+		ajoutePorte(*it);
 	}
 }
 
 //! Destructeur
 Piece::~Piece()
 {
-	list<Porte>::iterator it;
+	std::list<Porte>::iterator it;
 	for(it=m_portes.begin();it<m_portes.end();++it)
 	{
-		erase(*it);
+		m_portes.erase(it);
 	}
 }
 
@@ -56,18 +56,18 @@ const Piece & Piece::operator=(const Piece & p_source)
 		{
 			delete *it
 		}
-		m_portes.clear()
+		m_portes.clear();
 		list<Porte> portes=p_source.m_portes;
 		list<Porte>::iterator it_1;
 		for(it=m_portes.begin();it<m_portes.end();++it)
 		{
-			ajoutePorte (**it)
+			ajoutePorte (*it)
 		}
 		m_parcourue=p_source.getParcourue();
 		m_distanceDuDebut=p_source.getDistanceDuDebut();
 		m_nom=p_source.getNom();
 	}
-	return this
+	return *this
 	
 }
 
