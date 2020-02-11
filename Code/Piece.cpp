@@ -12,105 +12,112 @@ using namespace std;
 namespace TP1
 {
 
-//! Constructeur par défaut
-Piece::Piece()
+/**
+ * \fn Piece::Piece()
+ * constructeur par default de la piece parcourue est faux, le nom est un chiffre aleatoire 
+ * (aucune garantit que se nom soit unique) et la distance vers le debut est de 0
+ */
+Piece::Piece() : m_parcourue(false), m_nom(), m_distanceDuDebut(0)
 {
-	//portes;
-	m_parcourue = false;
-	m_distanceDuDebut = 0;
 }
-
-//! Surcharge du constructeur
-Piece::Piece(const std::string & p_nom):m_nom(p_nom)
-{
-	Piece();
-}
-
-//! Constructeur de copie
-Piece::Piece(const Piece & p_source):m_nom(p_source.m_nom),m_distanceDuDebut(p_source.m_distanceDuDebut),m_parcourue(p_source.m_parcourue)
-{
-	std::list<Porte>::const_iterator it;
-	for(it=p_source.m_portes.begin();it<p_source.m_portes.end();++it)
-	{
-		ajoutePorte(*it);
-	}
-}
-
-//! Destructeur
+/**
+ * Piece::~Piece()
+ * destucteur de l'instance
+ */
 Piece::~Piece()
 {
-	std::list<Porte>::iterator it;
-	for(it=m_portes.begin();it<m_portes.end();++it)
-	{
-		m_portes.erase(it);
-	}
 }
-
-//! Surcharge de l'opérateur =
-const Piece & Piece::operator=(const Piece & p_source)
+/**
+ * \fn Piece::Piece(const std::string & p_nom)
+ * \param p_nom nom de la piece
+ * constructeur par default de la piece parcourue est faux, le nom est definie par l'usager 
+ * et la distance vers le debut est de 0
+ */
+Piece::Piece(const std::string &p_nom) : m_parcourue(false), m_nom(p_nom), m_distanceDuDebut(0)
 {
-	if(this!=&p_source)
-	{
-		list<Porte>::iterator it;
-		for(it=m_portes.begin();it<m_portes.end();++it)
-		{
-			delete *it
-		}
-		m_portes.clear();
-		list<Porte> portes=p_source.m_portes;
-		list<Porte>::iterator it_1;
-		for(it=m_portes.begin();it<m_portes.end();++it)
-		{
-			ajoutePorte (*it)
-		}
-		m_parcourue=p_source.getParcourue();
-		m_distanceDuDebut=p_source.getDistanceDuDebut();
-		m_nom=p_source.getNom();
-	}
-	return *this
-	
 }
-
-//! Accesseur du nom d'une pièce
-std::string Piece::getNom() const
-{
-	return m_nom;
-}
-
-//! Pour initialiser l'attribut parcourue à true ou false
-void Piece::setParcourue(bool p)
-{
-	m_parcourue=p;
-}
-
-//! Pour initialiser l'attribut distanceDuDebut
-void Piece::setDistanceDuDebut(int p_d)
-{
-	m_distanceDuDebut=p_d;
-}
-
-//! Accéder au membre parcourue
-bool Piece::getParcourue() const
-{
-	return m_parcourue;
-}
-
-//! Accéder à la liste des portes qui partent de la pièce
-const std::list<Porte> & Piece::getPortes() const
-{
-	return m_portes;
-}
-
-//! Accéder au membre distanceDuDebut
+/**
+ * \fn int Piece::getDistanceDuDebut() const
+ * retourne la distance de l'instance par rapport au debut du labyrinthe
+ */
 int Piece::getDistanceDuDebut() const
 {
 	return m_distanceDuDebut;
 }
-
-//! Ajouter une porte à la liste des portes qui partent de la pièce
-void Piece::ajoutePorte(const Porte & p_p)
+/**
+ * \fn std::string Piece::getNom() const
+ * retourne le nom de la piece en instance
+ */
+std::string Piece::getNom() const
 {
-	m_portes.push_front(Porte(p_p)) //une copie de la porte passé en paramètre avec le constructeur copie(pas certain); sinon utiliser p_p directement
+	return m_nom;
 }
-
+/**
+ * \fn bool Piece::getParcourue() const
+ * retourne true si la piece a ete parcourus
+ */
+bool Piece::getParcourue() const
+{
+	return m_parcourue;
 }
+/**
+ * \fn const std::list<Porte> & getPortes() const
+ * retourne les porte de l'instance
+ */
+const std::list<Porte> &Piece::getPortes() const
+{
+	return m_portes;
+}
+/**
+ * \fn void Piece::setParcourue(bool p)
+ * \param p nouvel etat de parcouru
+ * Change l'etat de m_parcouru 
+ */
+void Piece::setParcourue(bool p)
+{
+	m_parcourue = p;
+}
+/**
+ * \fn void Piece::setDistanceDuDebut(int p_d)
+ * \param p_d distance par rapport au debut
+ * change la distance du debut
+ */
+void Piece::setDistanceDuDebut(int p_d)
+{
+	m_distanceDuDebut = p_d;
+}
+/**
+ * \fn void Piece::ajoutePorte(const Porte & p_p)
+ * \param p_p porte
+ * Ajoute une porte a la piece
+ */
+void Piece::ajoutePorte(const Porte &p_p)
+{
+	m_portes.push_front(p_p); //une copie de la porte passé en paramètre avec le constructeur copie(pas certain); sinon utiliser p_p directement
+}
+/**
+ * \fn Piece::Piece(const Piece &p_source)
+ * \param p_source piece a copier
+ * construit une de Piece a partir d'une autre piece
+ */
+Piece::Piece(const Piece &p_source) : m_nom(p_source.m_nom), m_distanceDuDebut(p_source.m_distanceDuDebut),
+									  m_parcourue(p_source.m_parcourue), m_portes(p_source.getPortes())
+{
+}
+/**
+ * \fn const Piece & Piece::operator=(const Piece & p_source)
+ * \param p_source
+ * surcharge de l'operateur egal
+ */
+const Piece &Piece::operator=(const Piece &p_source)
+{
+	if (this != &p_source)
+	{
+		m_nom = p_source.getNom();
+		m_distanceDuDebut = p_source.getDistanceDuDebut();
+		m_parcourue = p_source.getParcourue();
+		m_portes = p_source.getPortes();
+	}
+	return *this;
+}
+} // namespace TP1

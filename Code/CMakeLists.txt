@@ -27,5 +27,5 @@ endif()
 add_library(porte STATIC Porte.cpp)
 target_include_directories(porte PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-add_library(piece STATIC Porte.cpp)
+add_library(piece STATIC Piece.cpp)
 target_include_directories(piece PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

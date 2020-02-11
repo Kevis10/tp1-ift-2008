@@ -12,7 +12,6 @@
 
 #include <string>    // Pour le nom de la pièce
 #include <list>	     // Pour utiliser la liste de la STL
-#include <list>
 #include <iterator>
 #include "Porte.h"
 
@@ -33,7 +32,7 @@ public:
 	Piece(const std::string & p_nom);
 
 	//! Constructeur de copie
-	Piece(const Piece & p_source);
+	Piece(const Piece & p_source); 
 
     //! Destructeur
 	~Piece();

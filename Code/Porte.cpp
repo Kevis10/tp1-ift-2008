@@ -36,7 +36,6 @@ Porte::Porte() : color(Couleur::Aucun), destination(nullptr)
  */
 Porte::Porte(const Porte &porte) : color(porte.getCouleur()), destination(porte.getDestination())
 {
-	distination = new Porte (*porte.distination);
 }
 /**
  * \fn const Porte & Porte::operator=(const Porte& source)
