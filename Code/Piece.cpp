@@ -17,7 +17,7 @@ namespace TP1
  * constructeur par default de la piece parcourue est faux, le nom est un chiffre aleatoire 
  * (aucune garantit que se nom soit unique) et la distance vers le debut est de 0
  */
-Piece::Piece() : m_parcourue(false), m_nom(), m_distanceDuDebut(0)
+Piece::Piece() : m_parcourue(false), m_nom(""), m_distanceDuDebut(0)
 {
 }
 /**

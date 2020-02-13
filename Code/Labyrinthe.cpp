@@ -22,11 +22,16 @@ namespace TP1
 Labyrinthe::Labyrinthe() : depart(nullptr), arrivee(nullptr), dernier(nullptr), size(0)
 {
 }
+Labyrinthe::~Labyrinthe()
+{
+}
+/**
 Labyrinthe::Labyrinthe(const Labyrinthe &source)
 {
 
 	_copier(source);
 }
+
 void Labyrinthe::_copier(const Labyrinthe &source)
 {
 	size = source.getSize();
@@ -41,6 +46,7 @@ void Labyrinthe::_copier(const Labyrinthe &source)
 		courant = courant->suivant;
 	}
 }
+*/
 // -------------------------------------------------------------------------------------------------
 //	Méthodes iterateur
 // -------------------------------------------------------------------------------------------------

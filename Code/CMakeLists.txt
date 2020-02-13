@@ -29,3 +29,7 @@ target_include_directories(porte PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_library(piece STATIC Piece.cpp)
 target_include_directories(piece PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_library(labyrinthe STATIC Labyrinthe.cpp)
+target_link_libraries(labyrinthe piece porte)
+target_include_directories(labyrinthe PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
