@@ -16,15 +16,31 @@ using namespace std;
 namespace TP1
 {
 /**
-	 * \fn Labyrinthe::Labyrinthe()
-	* constructeur de la classe declare le dernier,le depart et l'arrier a un pointeur nulle
+ * \fn Labyrinthe::Labyrinthe()
+ * constructeur de la classe declare declare comme etant des pointeur nulle
+ * depart arrive et dernier et define la taille a 0
 */
-Labyrinthe::Labyrinthe() : depart(nullptr), arrivee(nullptr), dernier(nullptr), size(0)
+Labyrinthe::Labyrinthe() : depart(nullptr), arrivee(nullptr), size(0), dernier(nullptr)
 {
 }
+/**
+ * \fn Labyrinthe::~Labyrinthe()
+ * Destructeur de la classe, s'assure de libere la memoire des NoeudListePieces
+ */
 Labyrinthe::~Labyrinthe()
 {
 }
+/**
+ * \fn void Labyrinthe::placeDepart(const std::string &nom)
+ * \param nom nom de la piece a place comme etant le depart
+ * place le pointeur depart a la position de la piece du meme nom dans la chaine des 
+ * NoeudListePiece, si la piece n'existe pas une exception logic_error est lance
+ */ 
+void Labyrinthe::placeDepart(const std::string &nom)
+{
+	
+}
+
 /**
 Labyrinthe::Labyrinthe(const Labyrinthe &source)
 {
@@ -86,7 +102,7 @@ bool Labyrinthe::iterator::operator!=(const iterator &rhs) const
 }
 bool Labyrinthe::iterator::haveLooped() const
 {
-	return  ! (current->suivant == firstElement);
+	return !(current->suivant == firstElement);
 }
 // -------------------------------------------------------------------------------------------------
 //	Méthodes fournies

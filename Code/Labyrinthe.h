@@ -128,7 +128,7 @@ private:
 		Piece piece; //!< La piece contenue dans un noeud d'une liste chaînée circulaire.
 
 		NoeudListePieces *suivant = nullptr; //!< Le noeud suivant
-		};
+	};
 
 	//! Méthode privée. Retourne l'adresse du noeud de la liste de pièces contenue dans le labyrinthe
 	//! qui correspond à la pièce portant le nom nom, la méthode doit lancer une exception invalid_argument si le nom de
@@ -163,7 +163,7 @@ public:
 		friend class Labyrinthe;
 	};
 	//! ascesseur de du membre
-	NoeudListePieces* getDernier() const { return dernier; };
+	NoeudListePieces *getDernier() const { return dernier; };
 };
 
 } // namespace TP1
