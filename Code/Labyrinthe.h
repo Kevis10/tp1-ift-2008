@@ -41,7 +41,7 @@ public:
 	~Labyrinthe();
 
 	//! Surcharge de l'opérateur =
-	const Labyrinthe &operator=(const Labyrinthe &source);
+	const Labyrinthe & operator=(const Labyrinthe &source);
 
 	//! Méthode fournie dans le fichier Labyrinthe.cpp, elle charge
 	//! un fichier contenant un labyrinthe d'une certaine couleur
@@ -103,7 +103,7 @@ public:
 	//! Vérifie si une pièce portant le nom de la pièce fournie se trouve dans le labyrinthe
 	bool appartient(const Piece &p) const;
 	//! Accesseur pour le membre size
-	int getSize() const { return size; }
+	int getSize() const;
 
 private:
 	//! Méthode privée fournie dans le fichier Labyrinthe.cpp, elle ajoute un passage
@@ -118,6 +118,7 @@ private:
 	//! Même chose que pour la fonction placeDepart décrite plus haut, mais pour le pointeur arrivee d'un labyrinthe.
 	void placeArrivee(const std::string &nom);
 	void _copier(const Labyrinthe &source);
+	void _detruire();
 	/**
      * \class NoeudListePieces
      * \brief Noeud typique d'une liste chaînée circulaire

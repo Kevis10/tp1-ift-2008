@@ -23,12 +23,15 @@ namespace TP1
 Labyrinthe::Labyrinthe() : depart(nullptr), arrivee(nullptr), size(0), dernier(nullptr)
 {
 }
+
 /**
  * \fn Labyrinthe::~Labyrinthe()
  * Destructeur de la classe, s'assure de libere la memoire des NoeudListePieces
  */
+
 Labyrinthe::~Labyrinthe()
 {
+	_detruire();
 }
 /**
  * \fn void Labyrinthe::placeDepart(const std::string &nom)
@@ -38,9 +41,92 @@ Labyrinthe::~Labyrinthe()
  */ 
 void Labyrinthe::placeDepart(const std::string &nom)
 {
-	
+	NoeudListePieces* courant=dernier->suivant;
+	while(courant!=dernier)
+	{
+		if(courant->piece.getNom()==nom)
+		{
+			depart=&(courant->piece);
+		}
+		courant=courant->suivant;
+
+	}
+	throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
 }
 
+void Labyrinthe::placeArrivee(const std::string &nom)
+{
+	NoeudListePieces* courant=dernier->suivant;
+	while(courant!=dernier)
+	{
+		if(courant->piece.getNom()==nom)
+		{
+			arrivee=&(courant->piece);
+		}
+		courant=courant->suivant;
+
+	}
+	//throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
+}
+int Labyrinthe::getSize() const {
+ 
+}
+void Labyrinthe::_detruire()
+{
+	NoeudListePieces *courant=dernier;
+	while(courant!=nullptr)
+	{
+		dernier=dernier->suivant;
+		delete courant;
+		courant=dernier;
+	}
+}
+
+const Labyrinthe & Labyrinthe::operator=(const Labyrinthe &source)
+{
+	if(source.getDernier->suivant!=nullptr)
+	{
+		_detruire();
+	}
+		
+
+	if (source.getDernier->suivant!=0)
+		{
+			_copier(source);
+		}
+	
+	return (*this);
+
+}
+bool Labyrinthe::appartient(const Piece &p) const
+{
+	NoeudListePieces* courant=dernier->suivant;
+	while(courant!=dernier)
+	{
+		if(courant->piece.getNom()==p.getNom())
+		{
+			return true;
+		}
+		courant=courant->suivant;
+	}
+}
+
+Labyrinthe::NoeudListePieces * Labyrinthe::trouvePiece(const std::string &nom) const //Pourquoi mettre Labyrinthe:: devant NoeudListePieces *
+{
+	if(nom=="")
+	{
+		throw invalid_argument("Le nom ne doit pas être vide");
+	}
+	NoeudListePieces* courant=dernier->suivant;
+	while(courant!=dernier)
+	{
+		if(courant->piece.getNom()==nom)
+		{
+			return &(*courant);
+		}
+		courant=courant->suivant;
+	}
+}
 /**
 Labyrinthe::Labyrinthe(const Labyrinthe &source)
 {
