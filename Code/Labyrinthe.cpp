@@ -47,6 +47,7 @@ void Labyrinthe::placeDepart(const std::string &nom)
 		if(courant->piece.getNom()==nom)
 		{
 			depart=&(courant->piece);
+			return;
 		}
 		courant=courant->suivant;
 
@@ -62,14 +63,28 @@ void Labyrinthe::placeArrivee(const std::string &nom)
 		if(courant->piece.getNom()==nom)
 		{
 			arrivee=&(courant->piece);
+			return;
 		}
 		courant=courant->suivant;
 
 	}
-	//throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
+	throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
 }
 int Labyrinthe::getSize() const {
- 
+	int size=2;
+	if(Labyrinthe::getDernier()->suivant==nullptr)
+	{
+		return size=0;
+	}
+	NoeudListePieces *courant=dernier;
+	
+	while(courant!=dernier)
+	{
+		
+		courant=dernier->suivant;
+		size++;
+	}
+
 }
 void Labyrinthe::_detruire()
 {
