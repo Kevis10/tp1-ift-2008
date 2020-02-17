@@ -84,13 +84,13 @@ void Labyrinthe::_detruire()
 
 const Labyrinthe & Labyrinthe::operator=(const Labyrinthe &source)
 {
-	if(source.getDernier->suivant!=nullptr)
+	if(source.getDernier()->suivant!=nullptr)
 	{
 		_detruire();
 	}
 		
 
-	if (source.getDernier->suivant!=0)
+	if (source.getDernier()->suivant!=0)
 		{
 			_copier(source);
 		}
