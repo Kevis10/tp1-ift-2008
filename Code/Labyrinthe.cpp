@@ -20,7 +20,7 @@ namespace TP1
  * constructeur de la classe declare declare comme etant des pointeur nulle
  * depart arrive et dernier et define la taille a 0
 */
-Labyrinthe::Labyrinthe() : depart(nullptr), arrivee(nullptr), size(0), dernier(nullptr)
+Labyrinthe::Labyrinthe() : depart(nullptr), arrivee(nullptr), dernier(nullptr)
 {
 }
 
