@@ -102,8 +102,7 @@ public:
 
 	//! Vérifie si une pièce portant le nom de la pièce fournie se trouve dans le labyrinthe
 	bool appartient(const Piece &p) const;
-	//! Accesseur pour le membre size
-	int getSize() const;
+
 
 private:
 	//! Méthode privée fournie dans le fichier Labyrinthe.cpp, elle ajoute un passage
@@ -144,27 +143,6 @@ private:
 	Piece *arrivee; /*!< Adresse de la pièce d'arrivée (et non du noeud qui la contient) */
 	int size;		/*!< taille du labyrinthe*/
 
-public:
-	class iterator
-	{
-	public:
-		iterator();
-		Piece &operator*();
-		const Piece &operator*() const;
-		iterator &operator++();
-		iterator operator++(int);
-		bool operator==(const iterator &rhs) const;
-		bool operator!=(const iterator &rhs) const;
-		bool haveLooped() const;
-
-	private:
-		NoeudListePieces *current;
-		NoeudListePieces *firstElement;
-		iterator(NoeudListePieces *p);
-		friend class Labyrinthe;
-	};
-	//! ascesseur de du membre
-	NoeudListePieces *getDernier() const { return dernier; };
 };
 
 } // namespace TP1

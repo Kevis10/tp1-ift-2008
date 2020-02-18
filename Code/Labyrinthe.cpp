@@ -38,111 +38,91 @@ Labyrinthe::~Labyrinthe()
  * \param nom nom de la piece a place comme etant le depart
  * place le pointeur depart a la position de la piece du meme nom dans la chaine des 
  * NoeudListePiece, si la piece n'existe pas une exception logic_error est lance
- */ 
+ */
 void Labyrinthe::placeDepart(const std::string &nom)
 {
-	NoeudListePieces* courant=dernier->suivant;
-	while(courant!=dernier)
+	NoeudListePieces *courant = dernier->suivant;
+	while (courant != dernier)
 	{
-		if(courant->piece.getNom()==nom)
+		if (courant->piece.getNom() == nom)
 		{
-			depart=&(courant->piece);
+			depart = &(courant->piece);
 			return;
 		}
-		courant=courant->suivant;
-
+		courant = courant->suivant;
 	}
 	throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
 }
 
 void Labyrinthe::placeArrivee(const std::string &nom)
 {
-	NoeudListePieces* courant=dernier->suivant;
-	while(courant!=dernier)
+	NoeudListePieces *courant = dernier->suivant;
+	while (courant != dernier)
 	{
-		if(courant->piece.getNom()==nom)
+		if (courant->piece.getNom() == nom)
 		{
-			arrivee=&(courant->piece);
+			arrivee = &(courant->piece);
 			return;
 		}
-		courant=courant->suivant;
-
+		courant = courant->suivant;
 	}
 	throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
 }
-int Labyrinthe::getSize() const {
-	int size=2;
-	if(Labyrinthe::getDernier()->suivant==nullptr)
-	{
-		return size=0;
-	}
-	NoeudListePieces *courant=dernier;
-	
-	while(courant!=dernier)
-	{
-		
-		courant=dernier->suivant;
-		size++;
-	}
-
-}
 void Labyrinthe::_detruire()
 {
-	NoeudListePieces *courant=dernier;
-	while(courant!=nullptr)
+	NoeudListePieces *courant = dernier;
+	while (courant != nullptr)
 	{
-		dernier=dernier->suivant;
+		dernier = dernier->suivant;
 		delete courant;
-		courant=dernier;
+		courant = dernier;
 	}
 }
 
-const Labyrinthe & Labyrinthe::operator=(const Labyrinthe &source)
+const Labyrinthe &Labyrinthe::operator=(const Labyrinthe &source)
 {
-	if(source.getDernier()->suivant!=nullptr)
+	if (source.dernier->suivant != nullptr)
 	{
 		_detruire();
 	}
-		
 
-	if (source.getDernier()->suivant!=0)
-		{
-			_copier(source);
-		}
-	
+	if (source.dernier->suivant != 0)
+	{
+		_copier(source);
+	}
+
 	return (*this);
-
 }
 bool Labyrinthe::appartient(const Piece &p) const
 {
-	NoeudListePieces* courant=dernier->suivant;
-	while(courant!=dernier)
+	NoeudListePieces *courant = dernier->suivant;
+	while (courant != dernier)
 	{
-		if(courant->piece.getNom()==p.getNom())
+		if (courant->piece.getNom() == p.getNom())
 		{
 			return true;
 		}
-		courant=courant->suivant;
+		courant = courant->suivant;
 	}
 }
 
-Labyrinthe::NoeudListePieces * Labyrinthe::trouvePiece(const std::string &nom) const //Pourquoi mettre Labyrinthe:: devant NoeudListePieces *
+Labyrinthe::NoeudListePieces *Labyrinthe::trouvePiece(const std::string &nom) const //Pourquoi mettre Labyrinthe:: devant NoeudListePieces *
 {
-	if(nom=="")
+	if (nom == "")
 	{
 		throw invalid_argument("Le nom ne doit pas être vide");
 	}
-	NoeudListePieces* courant=dernier->suivant;
-	while(courant!=dernier)
+	NoeudListePieces *courant = dernier->suivant;
+	while (courant != dernier)
 	{
-		if(courant->piece.getNom()==nom)
+		if (courant->piece.getNom() == nom)
 		{
 			return &(*courant);
 		}
-		courant=courant->suivant;
+		courant = courant->suivant;
 	}
 }
-/**
+
 Labyrinthe::Labyrinthe(const Labyrinthe &source)
 {
 
@@ -151,60 +131,22 @@ Labyrinthe::Labyrinthe(const Labyrinthe &source)
 
 void Labyrinthe::_copier(const Labyrinthe &source)
 {
-	size = source.getSize();
-	dernier = new NoeudListePieces;
-	dernier->piece = Piece(source.getDernier()->piece);
+	dernier = source.dernier;
+	dernier->piece = Piece(source.dernier->piece);
+
+	NoeudListePieces *courant_source = source.dernier->suivant;
 	NoeudListePieces *courant = dernier->suivant;
-	for (iterator it = source.getDernier()->suivant; !it.haveLooped(); it++)
+
+	while (courant_source != dernier)
 	{
-
-		courant = new NoeudListePieces;
-		courant->piece = Piece(it.current->piece);
+		courant->suivant = new NoeudListePieces;
+		courant->piece = Piece(courant_source->piece);
 		courant = courant->suivant;
+		courant_source = courant_source->suivant;
 	}
+	courant->suivant = dernier;
 }
-*/
-// -------------------------------------------------------------------------------------------------
-//	Méthodes iterateur
-// -------------------------------------------------------------------------------------------------
 
-Labyrinthe::iterator::iterator() : current(nullptr), firstElement(nullptr)
-{
-}
-Labyrinthe::iterator::iterator(NoeudListePieces *p) : current(p), firstElement(p)
-{
-}
-Piece &Labyrinthe::iterator::operator*()
-{
-	return current->piece;
-}
-const Piece &Labyrinthe::iterator::operator*() const
-{
-	return current->piece;
-}
-Labyrinthe::iterator &Labyrinthe::iterator::operator++()
-{
-	current = current->suivant;
-	return *this;
-}
-Labyrinthe::iterator Labyrinthe::iterator::operator++(int)
-{
-	iterator old = *this;
-	++(*this);
-	return old;
-}
-bool Labyrinthe::iterator::operator==(const iterator &rhs) const
-{
-	return current == rhs.current;
-}
-bool Labyrinthe::iterator::operator!=(const iterator &rhs) const
-{
-	return current != rhs.current;
-}
-bool Labyrinthe::iterator::haveLooped() const
-{
-	return !(current->suivant == firstElement);
-}
 // -------------------------------------------------------------------------------------------------
 //	Méthodes fournies
 // -------------------------------------------------------------------------------------------------
