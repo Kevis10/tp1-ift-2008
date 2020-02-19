@@ -104,6 +104,7 @@ bool Labyrinthe::appartient(const Piece &p) const
 		}
 		courant = courant->suivant;
 	}
+	return false;
 }
 
 Labyrinthe::NoeudListePieces *Labyrinthe::trouvePiece(const std::string &nom) const //Pourquoi mettre Labyrinthe:: devant NoeudListePieces *

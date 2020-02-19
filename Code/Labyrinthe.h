@@ -102,7 +102,7 @@ public:
 
 	//! Vérifie si une pièce portant le nom de la pièce fournie se trouve dans le labyrinthe
 	bool appartient(const Piece &p) const;
-
+	
 
 private:
 	//! Méthode privée fournie dans le fichier Labyrinthe.cpp, elle ajoute un passage
@@ -141,6 +141,8 @@ private:
 
 	Piece *depart;  /*!< Adresse de la pièce de départ (et non du noeud qui la contient) */
 	Piece *arrivee; /*!< Adresse de la pièce d'arrivée (et non du noeud qui la contient) */
+
+	//! Accesseur pour le membre noeud d'arrivee
 
 };
 
