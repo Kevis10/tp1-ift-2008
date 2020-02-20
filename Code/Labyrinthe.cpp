@@ -70,31 +70,44 @@ void Labyrinthe::placeArrivee(const std::string &nom)
 }
 void Labyrinthe::_detruire()
 {
-	NoeudListePieces *courant = dernier;
-	while (courant != nullptr)
+	if (dernier != nullptr)
 	{
-		dernier = dernier->suivant;
-		delete courant;
-		courant = dernier;
+		NoeudListePieces *courant=dernier->suivant;
+		NoeudListePieces *destructeur=courant;
+		while(courant != dernier)
+		{
+			courant=courant->suivant;
+			destructeur->suivant=nullptr;
+			delete destructeur;
+			destructeur=courant;
+		}
+		dernier->suivant=nullptr;
+		delete dernier;
 	}
+	dernier=nullptr;
 }
 
 const Labyrinthe &Labyrinthe::operator=(const Labyrinthe &source)
 {
-	if (source.dernier->suivant != nullptr)
+	if (dernier != nullptr)
 	{
 		_detruire();
-	}
+		}
+		if (source.dernier != 0)
+		{
+			_copier(source.dernier);
+		}
+		return (*this);
 
-	if (source.dernier->suivant != 0)
-	{
-		_copier(source);
-	}
-
-	return (*this);
 }
+
+
 bool Labyrinthe::appartient(const Piece &p) const
 {
+	if(dernier==nullptr)
+	{
+		return false;
+	}
 	NoeudListePieces *courant = dernier->suivant;
 	while (courant != dernier)
 	{
@@ -103,6 +116,10 @@ bool Labyrinthe::appartient(const Piece &p) const
 			return true;
 		}
 		courant = courant->suivant;
+	}
+	if (dernier->piece.getNom()==p.getNom())
+	{
+		return true;
 	}
 	return false;
 }
@@ -127,25 +144,33 @@ Labyrinthe::NoeudListePieces *Labyrinthe::trouvePiece(const std::string &nom) co
 Labyrinthe::Labyrinthe(const Labyrinthe &source)
 {
 
-	_copier(source);
+	if(source.dernier==nullptr)
+	{
+		dernier=nullptr;
+	}
+	else
+	_copier(source.dernier);
 }
 
-void Labyrinthe::_copier(const Labyrinthe &source)
+void Labyrinthe::_copier (NoeudListePieces * source)
 {
-	dernier = source.dernier;
-	dernier->piece = Piece(source.dernier->piece);
-
-	NoeudListePieces *courant_source = source.dernier->suivant;
-	NoeudListePieces *courant = dernier->suivant;
-
-	while (courant_source != dernier)
+	try
 	{
-		courant->suivant = new NoeudListePieces;
-		courant->piece = Piece(courant_source->piece);
-		courant = courant->suivant;
-		courant_source = courant_source->suivant;
+		dernier =new NoeudListePieces(source->piece);
+		dernier->suivant=dernier;
+		NoeudListePieces *courant = dernier;
+		for(NoeudListePieces *courant_source=source->suivant;courant_source != source;courant_source=courant_source->suivant)
+		{
+			courant->suivant = new NoeudListePieces(courant_source->piece,dernier);
+			courant->suivant->suivant=dernier;
+			courant = courant->suivant;
+		}
 	}
-	courant->suivant = dernier;
+	catch(const std::exception & e)
+	{
+		_detruire();
+		throw;
+	}
 }
 
 // -------------------------------------------------------------------------------------------------
