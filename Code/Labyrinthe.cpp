@@ -42,6 +42,13 @@ Labyrinthe::~Labyrinthe()
 void Labyrinthe::placeDepart(const std::string &nom)
 {
 	NoeudListePieces *courant = dernier->suivant;
+
+	if(dernier->piece.getNom()==nom)
+	 {
+		 depart = &(courant->piece);
+			return;
+	 }
+	 
 	while (courant != dernier)
 	{
 		if (courant->piece.getNom() == nom)
@@ -51,17 +58,19 @@ void Labyrinthe::placeDepart(const std::string &nom)
 		}
 		courant = courant->suivant;
 	}
-	if(dernier->piece.getNom()==nom)
-	 {
-		 depart = &(courant->piece);
-			return;
-	 }
+	
 	throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
 }
 
 void Labyrinthe::placeArrivee(const std::string &nom)
 {
 	NoeudListePieces *courant = dernier->suivant;
+	if(dernier->piece.getNom()==nom)
+	{
+		arrivee = &(courant->piece);
+			return;
+	}
+	
 	while (courant != dernier)
 	{
 		if (courant->piece.getNom() == nom)
@@ -71,11 +80,7 @@ void Labyrinthe::placeArrivee(const std::string &nom)
 		}
 		courant = courant->suivant;
 	}
-	if(dernier->piece.getNom()==nom)
-	{
-		arrivee = &(courant->piece);
-			return;
-	}
+
 	throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
 }
 void Labyrinthe::_detruire()
