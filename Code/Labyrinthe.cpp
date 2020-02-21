@@ -208,20 +208,20 @@ Couleur Labyrinthe::trouveGagnant()
 											{Couleur::Rouge, solutionner(Couleur::Rouge)},
 											{Couleur::Vert, solutionner(Couleur::Vert)},
 											{Couleur::Jaune, solutionner(Couleur::Jaune)}};
-	std::pair<std::vector<Couleur>, int> min = {{Couleur::Aucun}, 0};
+	std::pair<std::vector<Couleur>, int> min = {{Couleur::Aucun}, std::numeric_limits<int>::max()};
 	for (const auto &kv : joueurs)
 	{
 		if (kv.second < min.second)
 		{
-			min.first =std::vector<Couleur>(1,kv.first);
+			min.first = std::vector<Couleur>(1, kv.first);
 			min.second = kv.second;
 		}
-		else if (kv.second ==min.second)
+		else if (kv.second == min.second)
 		{
 			min.first.push_back(kv.first);
 		}
 	}
-	if(min.first.size()==1)
+	if (min.first.size() == 1)
 	{
 		return min.first[0];
 	}
@@ -232,20 +232,19 @@ Couleur Labyrinthe::trouveGagnant()
 }
 Couleur Labyrinthe::gagantAmbigue(const std::vector<Couleur> &joueurs)
 {
-	if(std::find(joueurs.begin(),joueurs.end(),Couleur::Rouge)!=joueurs.end())
+	if (std::find(joueurs.begin(), joueurs.end(), Couleur::Rouge) != joueurs.end())
 	{
 		return Couleur::Rouge;
 	}
-	else if(std::find(joueurs.begin(),joueurs.end(),Couleur::Vert)!=joueurs.end())
+	else if (std::find(joueurs.begin(), joueurs.end(), Couleur::Vert) != joueurs.end())
 	{
 		return Couleur::Vert;
 	}
-	else if(std::find(joueurs.begin(),joueurs.end(),Couleur::Bleu)!=joueurs.end())
+	else if (std::find(joueurs.begin(), joueurs.end(), Couleur::Bleu) != joueurs.end())
 	{
 		return Couleur::Bleu;
 	}
 	return Couleur::Jaune;
-	
 }
 // -------------------------------------------------------------------------------------------------
 //	Méthodes fournies
