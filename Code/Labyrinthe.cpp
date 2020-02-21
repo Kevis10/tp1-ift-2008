@@ -43,11 +43,11 @@ void Labyrinthe::placeDepart(const std::string &nom)
 {
 	NoeudListePieces *courant = dernier->suivant;
 
-	if(dernier->piece.getNom()==nom)
-	 {
-		 depart = &(courant->piece);
-			return;
-	 }
+	if (dernier->piece.getNom() == nom)
+	{
+		depart = &(courant->piece);
+		return;
+	}
 	while (courant != dernier)
 	{
 		if (courant->piece.getNom() == nom)
@@ -57,17 +57,17 @@ void Labyrinthe::placeDepart(const std::string &nom)
 		}
 		courant = courant->suivant;
 	}
-	
+
 	throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
 }
 
 void Labyrinthe::placeArrivee(const std::string &nom)
 {
 	NoeudListePieces *courant = dernier->suivant;
-	if(dernier->piece.getNom()==nom)
+	if (dernier->piece.getNom() == nom)
 	{
 		arrivee = &(courant->piece);
-			return;
+		return;
 	}
 	while (courant != dernier)
 	{
@@ -192,13 +192,23 @@ int Labyrinthe::solutionner(Couleur joueur)
 	{
 		courant = file.front();
 		file.pop();
+
 		const std::list<Porte> portes = courant->getPortes();
+		std::cout << std::endl;
+		std::cout << "--------" << std::endl;
+		std::cout << depart << std::endl;
+		std::cout << arrivee << std::endl;
+		std::cout << "--------" << std::endl;
+
 		for (const auto &val : portes)
 		{
+
 			if (val.getCouleur() == joueur)
 			{
+
 				if (!val.getDestination()->getParcourue())
 				{
+
 					val.getDestination()->setParcourue(true);
 					val.getDestination()->setDistanceDuDebut(courant->getDistanceDuDebut());
 					file.push(val.getDestination());
@@ -229,7 +239,7 @@ Couleur Labyrinthe::trouveGagnant()
 		else if (kv.second == min.second)
 		{
 			min.first.push_back(kv.first);
-			min.second =kv.second;
+			min.second = kv.second;
 		}
 	}
 	if (min.first.size() == 1)
