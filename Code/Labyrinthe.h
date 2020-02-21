@@ -121,7 +121,7 @@ private:
 	void placeArrivee(const std::string &nom);
 	void _copier(const Labyrinthe &source);
 	void _detruire();
-	Couleur gagantAmbigue(const std::vector<Couleur> &joueurs);
+	Couleur gagantAmbigue(const std::vector<Couleur> &joueurs) const;
 	/**
      * \class NoeudListePieces
      * \brief Noeud typique d'une liste chaînée circulaire

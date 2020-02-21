@@ -45,7 +45,7 @@ void Labyrinthe::placeDepart(const std::string &nom)
 
 	if (dernier->piece.getNom() == nom)
 	{
-		depart = &(courant->piece);
+		depart = &(dernier->piece);
 		return;
 	}
 	while (courant != dernier)
@@ -66,7 +66,7 @@ void Labyrinthe::placeArrivee(const std::string &nom)
 	NoeudListePieces *courant = dernier->suivant;
 	if (dernier->piece.getNom() == nom)
 	{
-		arrivee = &(courant->piece);
+		arrivee = &(dernier->piece);
 		return;
 	}
 	while (courant != dernier)
@@ -194,11 +194,6 @@ int Labyrinthe::solutionner(Couleur joueur)
 		file.pop();
 
 		const std::list<Porte> portes = courant->getPortes();
-		std::cout << std::endl;
-		std::cout << "--------" << std::endl;
-		std::cout << depart << std::endl;
-		std::cout << arrivee << std::endl;
-		std::cout << "--------" << std::endl;
 
 		for (const auto &val : portes)
 		{
@@ -210,12 +205,13 @@ int Labyrinthe::solutionner(Couleur joueur)
 				{
 
 					val.getDestination()->setParcourue(true);
-					val.getDestination()->setDistanceDuDebut(courant->getDistanceDuDebut());
+					val.getDestination()->setDistanceDuDebut(courant->getDistanceDuDebut() + 1);
 					file.push(val.getDestination());
 				}
 			}
 		}
 	}
+
 	if (courant != arrivee)
 	{
 		return -1;
@@ -251,7 +247,7 @@ Couleur Labyrinthe::trouveGagnant()
 		return gagantAmbigue(min.first);
 	}
 }
-Couleur Labyrinthe::gagantAmbigue(const std::vector<Couleur> &joueurs)
+Couleur Labyrinthe::gagantAmbigue(const std::vector<Couleur> &joueurs) const
 {
 	if (std::find(joueurs.begin(), joueurs.end(), Couleur::Rouge) != joueurs.end())
 	{
