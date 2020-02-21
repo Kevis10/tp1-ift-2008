@@ -51,6 +51,11 @@ void Labyrinthe::placeDepart(const std::string &nom)
 		}
 		courant = courant->suivant;
 	}
+	if(dernier->piece.getNom()==nom)
+	 {
+		 depart = &(courant->piece);
+			return;
+	 }
 	throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
 }
 
@@ -65,6 +70,11 @@ void Labyrinthe::placeArrivee(const std::string &nom)
 			return;
 		}
 		courant = courant->suivant;
+	}
+	if(dernier->piece.getNom()==nom)
+	{
+		arrivee = &(courant->piece);
+			return;
 	}
 	throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
 }
@@ -95,7 +105,7 @@ const Labyrinthe &Labyrinthe::operator=(const Labyrinthe &source)
 	}
 	if (source.dernier != 0)
 	{
-		_copier(source.dernier);
+		_copier(source);
 	}
 	return (*this);
 }
@@ -147,28 +157,25 @@ Labyrinthe::Labyrinthe(const Labyrinthe &source)
 		dernier = nullptr;
 	}
 	else
-		_copier(source.dernier);
+		_copier(source);
 }
 
-void Labyrinthe::_copier(NoeudListePieces *source)
+void Labyrinthe::_copier(const Labyrinthe &source)
 {
-	try
+	dernier = source.dernier;
+	dernier->piece = Piece(source.dernier->piece);
+
+	NoeudListePieces *courant_source = source.dernier->suivant;
+	NoeudListePieces *courant = dernier->suivant;
+
+	while (courant_source != dernier)
 	{
-		dernier = new NoeudListePieces(source->piece);
-		dernier->suivant = dernier;
-		NoeudListePieces *courant = dernier;
-		for (NoeudListePieces *courant_source = source->suivant; courant_source != source; courant_source = courant_source->suivant)
-		{
-			courant->suivant = new NoeudListePieces(courant_source->piece, dernier);
-			courant->suivant->suivant = dernier;
-			courant = courant->suivant;
-		}
+		courant->suivant = new NoeudListePieces;
+		courant->piece = Piece(courant_source->piece);
+		courant = courant->suivant;
+		courant_source = courant_source->suivant;
 	}
-	catch (const std::exception &e)
-	{
-		_detruire();
-		throw;
-	}
+	courant->suivant = dernier;
 }
 int Labyrinthe::solutionner(Couleur joueur)
 {
@@ -185,7 +192,7 @@ int Labyrinthe::solutionner(Couleur joueur)
 		const std::list<Porte> portes = courant->getPortes();
 		for (const auto &val : portes)
 		{
-			if (val.getCouleur == joueur)
+			if (val.getCouleur() == joueur)
 			{
 				if (!val.getDestination()->getParcourue())
 				{
