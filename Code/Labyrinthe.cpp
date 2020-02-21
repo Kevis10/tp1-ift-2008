@@ -182,6 +182,16 @@ void Labyrinthe::_copier(const Labyrinthe &source)
 }
 int Labyrinthe::solutionner(Couleur joueur)
 {
+	// 0 mettre tous les parcours a faux
+
+	NoeudListePieces *courantIni = dernier->suivant;
+	while (courantIni != dernier)
+	{
+		courantIni->piece.setParcourue(false);
+		courantIni = courantIni->suivant;
+	}
+	dernier->piece.setParcourue(false);
+
 	std::queue<Piece *> file;
 	// 1
 	depart->setDistanceDuDebut(0);
@@ -197,10 +207,8 @@ int Labyrinthe::solutionner(Couleur joueur)
 
 		for (const auto &val : portes)
 		{
-
 			if (val.getCouleur() == joueur)
 			{
-
 				if (!val.getDestination()->getParcourue())
 				{
 
@@ -227,7 +235,7 @@ Couleur Labyrinthe::trouveGagnant()
 	std::pair<std::vector<Couleur>, int> min = {{Couleur::Aucun}, std::numeric_limits<int>::max()};
 	for (const auto &kv : joueurs)
 	{
-		if (kv.second < min.second)
+		if (kv.second < min.second && kv.second!=-1)
 		{
 			min.first = std::vector<Couleur>(1, kv.first);
 			min.second = kv.second;
