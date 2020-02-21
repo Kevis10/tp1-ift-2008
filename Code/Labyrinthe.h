@@ -15,7 +15,7 @@
 #include <sstream>  // Lecture/écriture dans un string, voir la méthode chargeLabyrinthe() fournie
 #include <string>   // Pour le nom de la pièce
 #include <queue>	// Pour utiliser la file de la STL afin de solutionner le labyrinthe
-
+#include <vector>
 #include <limits> // Pour l'utilisation de numeric_limits<int>::max()
 
 #include "Porte.h"

@@ -72,19 +72,19 @@ void Labyrinthe::_detruire()
 {
 	if (dernier != nullptr)
 	{
-		NoeudListePieces *courant=dernier->suivant;
-		NoeudListePieces *destructeur=courant;
-		while(courant != dernier)
+		NoeudListePieces *courant = dernier->suivant;
+		NoeudListePieces *destructeur = courant;
+		while (courant != dernier)
 		{
-			courant=courant->suivant;
-			destructeur->suivant=nullptr;
+			courant = courant->suivant;
+			destructeur->suivant = nullptr;
 			delete destructeur;
-			destructeur=courant;
+			destructeur = courant;
 		}
-		dernier->suivant=nullptr;
+		dernier->suivant = nullptr;
 		delete dernier;
 	}
-	dernier=nullptr;
+	dernier = nullptr;
 }
 
 const Labyrinthe &Labyrinthe::operator=(const Labyrinthe &source)
@@ -92,19 +92,17 @@ const Labyrinthe &Labyrinthe::operator=(const Labyrinthe &source)
 	if (dernier != nullptr)
 	{
 		_detruire();
-		}
-		if (source.dernier != 0)
-		{
-			_copier(source.dernier);
-		}
-		return (*this);
-
+	}
+	if (source.dernier != 0)
+	{
+		_copier(source.dernier);
+	}
+	return (*this);
 }
-
 
 bool Labyrinthe::appartient(const Piece &p) const
 {
-	if(dernier==nullptr)
+	if (dernier == nullptr)
 	{
 		return false;
 	}
@@ -117,7 +115,7 @@ bool Labyrinthe::appartient(const Piece &p) const
 		}
 		courant = courant->suivant;
 	}
-	if (dernier->piece.getNom()==p.getNom())
+	if (dernier->piece.getNom() == p.getNom())
 	{
 		return true;
 	}
@@ -144,33 +142,66 @@ Labyrinthe::NoeudListePieces *Labyrinthe::trouvePiece(const std::string &nom) co
 Labyrinthe::Labyrinthe(const Labyrinthe &source)
 {
 
-	if(source.dernier==nullptr)
+	if (source.dernier == nullptr)
 	{
-		dernier=nullptr;
+		dernier = nullptr;
 	}
 	else
-	_copier(source.dernier);
+		_copier(source.dernier);
 }
 
-void Labyrinthe::_copier (NoeudListePieces * source)
+void Labyrinthe::_copier(NoeudListePieces *source)
 {
 	try
 	{
-		dernier =new NoeudListePieces(source->piece);
-		dernier->suivant=dernier;
+		dernier = new NoeudListePieces(source->piece);
+		dernier->suivant = dernier;
 		NoeudListePieces *courant = dernier;
-		for(NoeudListePieces *courant_source=source->suivant;courant_source != source;courant_source=courant_source->suivant)
+		for (NoeudListePieces *courant_source = source->suivant; courant_source != source; courant_source = courant_source->suivant)
 		{
-			courant->suivant = new NoeudListePieces(courant_source->piece,dernier);
-			courant->suivant->suivant=dernier;
+			courant->suivant = new NoeudListePieces(courant_source->piece, dernier);
+			courant->suivant->suivant = dernier;
 			courant = courant->suivant;
 		}
 	}
-	catch(const std::exception & e)
+	catch (const std::exception &e)
 	{
 		_detruire();
 		throw;
 	}
+}
+int Labyrinthe::solutionner(Couleur joueur)
+{
+	std::queue<Piece *> file;
+	// 1
+	depart->setDistanceDuDebut(0);
+	file.push(depart);
+	// 2
+	Piece *courant = nullptr;
+	// a mettre dans une autre method
+	while (!file.empty() && courant != arrivee)
+	{
+		courant = file.front();
+		file.pop();
+		const std::list<Porte> portes = courant->getPortes();
+		for (std::list<Porte>::const_iterator it = portes.begin(); it != portes.end(); it++)
+		{
+			if (it->getCouleur == joueur)
+			{
+				if (!it->getDestination()->getParcourue())
+				{
+					it->getDestination()->setParcourue(true);
+					it->getDestination()->setDistanceDuDebut(courant->getDistanceDuDebut());
+					file.push(it->getDestination());
+				}
+			}
+		}
+	}
+	if (courant != arrivee)
+	{
+		return -1;
+	}
+	return courant->getDistanceDuDebut();
 }
 
 // -------------------------------------------------------------------------------------------------
