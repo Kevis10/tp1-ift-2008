@@ -15,8 +15,11 @@
 #include <sstream>  // Lecture/écriture dans un string, voir la méthode chargeLabyrinthe() fournie
 #include <string>   // Pour le nom de la pièce
 #include <queue>	// Pour utiliser la file de la STL afin de solutionner le labyrinthe
-#include <vector>
+#include <map> 
 #include <limits> // Pour l'utilisation de numeric_limits<int>::max()
+#include <algorithm>
+#include <vector>
+#include <utility>
 
 #include "Porte.h"
 #include "Piece.h"
@@ -116,7 +119,9 @@ private:
 
 	//! Même chose que pour la fonction placeDepart décrite plus haut, mais pour le pointeur arrivee d'un labyrinthe.
 	void placeArrivee(const std::string &nom);
-	
+	void _copier(const Labyrinthe &source);
+	void _detruire();
+	Couleur gagantAmbigue(const std::vector<Couleur> &joueurs);
 	/**
      * \class NoeudListePieces
      * \brief Noeud typique d'une liste chaînée circulaire
@@ -127,8 +132,6 @@ private:
 		Piece piece; //!< La piece contenue dans un noeud d'une liste chaînée circulaire.
 
 		NoeudListePieces *suivant = nullptr; //!< Le noeud suivant
-		NoeudListePieces (){};
-		NoeudListePieces (const Piece& p_piece, NoeudListePieces * p_suivant = nullptr) :piece(p_piece), suivant(p_suivant) {}
 	};
 
 	//! Méthode privée. Retourne l'adresse du noeud de la liste de pièces contenue dans le labyrinthe
@@ -144,8 +147,7 @@ private:
 	Piece *arrivee; /*!< Adresse de la pièce d'arrivée (et non du noeud qui la contient) */
 
 	//! Accesseur pour le membre noeud d'arrivee
-	void _copier(NoeudListePieces * source);
-	void _detruire();
+
 };
 
 } // namespace TP1

@@ -178,21 +178,20 @@ int Labyrinthe::solutionner(Couleur joueur)
 	file.push(depart);
 	// 2
 	Piece *courant = nullptr;
-	// a mettre dans une autre method
 	while (!file.empty() && courant != arrivee)
 	{
 		courant = file.front();
 		file.pop();
 		const std::list<Porte> portes = courant->getPortes();
-		for (std::list<Porte>::const_iterator it = portes.begin(); it != portes.end(); it++)
+		for (const auto &val : portes)
 		{
-			if (it->getCouleur == joueur)
+			if (val.getCouleur == joueur)
 			{
-				if (!it->getDestination()->getParcourue())
+				if (!val.getDestination()->getParcourue())
 				{
-					it->getDestination()->setParcourue(true);
-					it->getDestination()->setDistanceDuDebut(courant->getDistanceDuDebut());
-					file.push(it->getDestination());
+					val.getDestination()->setParcourue(true);
+					val.getDestination()->setDistanceDuDebut(courant->getDistanceDuDebut());
+					file.push(val.getDestination());
 				}
 			}
 		}
@@ -203,7 +202,51 @@ int Labyrinthe::solutionner(Couleur joueur)
 	}
 	return courant->getDistanceDuDebut();
 }
-
+Couleur Labyrinthe::trouveGagnant()
+{
+	const std::map<Couleur, int> joueurs = {{Couleur::Bleu, solutionner(Couleur::Bleu)},
+											{Couleur::Rouge, solutionner(Couleur::Rouge)},
+											{Couleur::Vert, solutionner(Couleur::Vert)},
+											{Couleur::Jaune, solutionner(Couleur::Jaune)}};
+	std::pair<std::vector<Couleur>, int> min = {{Couleur::Aucun}, 0};
+	for (const auto &kv : joueurs)
+	{
+		if (kv.second < min.second)
+		{
+			min.first =std::vector<Couleur>(1,kv.first);
+			min.second = kv.second;
+		}
+		else if (kv.second ==min.second)
+		{
+			min.first.push_back(kv.first);
+		}
+	}
+	if(min.first.size()==1)
+	{
+		return min.first[0];
+	}
+	else
+	{
+		return gagantAmbigue(min.first);
+	}
+}
+Couleur Labyrinthe::gagantAmbigue(const std::vector<Couleur> &joueurs)
+{
+	if(std::find(joueurs.begin(),joueurs.end(),Couleur::Rouge)!=joueurs.end())
+	{
+		return Couleur::Rouge;
+	}
+	else if(std::find(joueurs.begin(),joueurs.end(),Couleur::Vert)!=joueurs.end())
+	{
+		return Couleur::Vert;
+	}
+	else if(std::find(joueurs.begin(),joueurs.end(),Couleur::Bleu)!=joueurs.end())
+	{
+		return Couleur::Bleu;
+	}
+	return Couleur::Jaune;
+	
+}
 // -------------------------------------------------------------------------------------------------
 //	Méthodes fournies
 // -------------------------------------------------------------------------------------------------
