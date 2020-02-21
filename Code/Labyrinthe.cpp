@@ -219,6 +219,7 @@ Couleur Labyrinthe::trouveGagnant()
 		else if (kv.second == min.second)
 		{
 			min.first.push_back(kv.first);
+			min.second =kv.second;
 		}
 	}
 	if (min.first.size() == 1)
