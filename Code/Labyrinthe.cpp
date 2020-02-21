@@ -48,7 +48,6 @@ void Labyrinthe::placeDepart(const std::string &nom)
 		 depart = &(courant->piece);
 			return;
 	 }
-	 
 	while (courant != dernier)
 	{
 		if (courant->piece.getNom() == nom)
@@ -70,7 +69,6 @@ void Labyrinthe::placeArrivee(const std::string &nom)
 		arrivee = &(courant->piece);
 			return;
 	}
-	
 	while (courant != dernier)
 	{
 		if (courant->piece.getNom() == nom)
