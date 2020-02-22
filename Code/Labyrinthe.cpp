@@ -191,21 +191,47 @@ int Labyrinthe::solutionner(Couleur joueur)
 		courantIni = courantIni->suivant;
 	}
 	dernier->piece.setParcourue(false);
-
 	std::queue<Piece *> file;
 	// 1
+	depart->setParcourue(true);
 	depart->setDistanceDuDebut(0);
 	file.push(depart);
 	// 2
 	Piece *courant = nullptr;
-	while (!file.empty() && courant != arrivee)
+	
+	do
 	{
 		courant = file.front();
 		file.pop();
 
-		const std::list<Porte> portes = courant->getPortes();
+		/*const*/std::list<Porte> portes = courant->getPortes();
 
-		for (const auto &val : portes)
+		NoeudListePieces *courant_piece = dernier->suivant;
+	while (courant_piece != dernier)
+	{
+		//const std::list<Porte> portes_sens=courant_piece->piece.getPortes;
+		for ( auto &val_porte : courant_piece->piece.getPortes())
+		{
+			if(val_porte.getCouleur()== joueur && val_porte.getDestination()==courant && !courant_piece->piece.getParcourue() )
+			{
+				portes.push_back(val_porte);
+			}
+		}
+		courant_piece=courant_piece->suivant;
+	}
+	for ( auto &val_porte1 : dernier->piece.getPortes())
+		{
+			if(val_porte1.getCouleur()== joueur && val_porte1.getDestination()==courant && !courant_piece->piece.getParcourue())
+			{
+				portes.push_back(val_porte1);
+			}
+		}
+	
+	dernier->piece.setParcourue(false);
+		{
+			
+		}
+		for ( auto &val : portes)
 		{
 			if (val.getCouleur() == joueur)
 			{
@@ -219,7 +245,7 @@ int Labyrinthe::solutionner(Couleur joueur)
 			}
 		}
 	}
-
+	while (!file.empty() && courant != arrivee);
 	if (courant != arrivee)
 	{
 		return -1;
