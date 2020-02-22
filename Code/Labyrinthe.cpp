@@ -250,7 +250,7 @@ void Labyrinthe::chercherSiUnePieceQuiMenePieceCourante(std::queue<Piece *> &fil
 			{
 				if (porte.getDestination() == pieceCourante)
 				{
-					piece_courante_parcours_complet->setDistanceDuDebut(pieceCourante->getDistanceDuDebut()+1);
+					piece_courante_parcours_complet->setDistanceDuDebut(pieceCourante->getDistanceDuDebut() + 1);
 					file.push(piece_courante_parcours_complet);
 				}
 			}
