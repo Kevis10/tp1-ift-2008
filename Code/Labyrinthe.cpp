@@ -160,25 +160,34 @@ Labyrinthe::Labyrinthe(const Labyrinthe &source)
 		dernier = nullptr;
 	}
 	else
+	{
 		_copier(source);
+	}
 }
 
 void Labyrinthe::_copier(const Labyrinthe &source)
 {
-	dernier = source.dernier;
-	dernier->piece = Piece(source.dernier->piece);
-
-	NoeudListePieces *courant_source = source.dernier->suivant;
-	NoeudListePieces *courant = dernier->suivant;
-
-	while (courant_source != dernier)
+	try
 	{
-		courant->suivant = new NoeudListePieces;
-		courant->piece = Piece(courant_source->piece);
-		courant = courant->suivant;
-		courant_source = courant_source->suivant;
+		dernier = source.dernier;
+		dernier->piece = Piece(source.dernier->piece);
+
+		NoeudListePieces *courant_source = source.dernier->suivant;
+		NoeudListePieces *courant = dernier->suivant;
+
+		while (courant_source != dernier)
+		{
+			courant->suivant = new NoeudListePieces;
+			courant->piece = Piece(courant_source->piece);
+			courant = courant->suivant;
+			courant_source = courant_source->suivant;
+		}
+		courant->suivant = dernier;
 	}
-	courant->suivant = dernier;
+	catch (const std::exception &)
+	{
+		_detruire();
+	}
 }
 int Labyrinthe::solutionner(Couleur joueur)
 {
@@ -200,8 +209,9 @@ int Labyrinthe::solutionner(Couleur joueur)
 		const int distance_courante = courant->getDistanceDuDebut();
 
 		std::list<Porte> portes = courant->getPortes();
-
+		//cherche les piece adjacente
 		chercherPortePieceDefiler(portes, joueur, file, distance_courante);
+		// cherche les piece qui peuve se rendre a la piece courante
 		chercherSiUnePieceQuiMenePieceCourante(file, courant);
 
 	} while (!file.empty() && courant != arrivee);
@@ -240,23 +250,12 @@ void Labyrinthe::chercherSiUnePieceQuiMenePieceCourante(std::queue<Piece *> &fil
 			{
 				if (porte.getDestination() == pieceCourante)
 				{
-					piece_courante_parcours_complet->setDistanceDuDebut(pieceCourante->getDistanceDuDebut());
+					piece_courante_parcours_complet->setDistanceDuDebut(pieceCourante->getDistanceDuDebut()+1);
 					file.push(piece_courante_parcours_complet);
 				}
 			}
 		}
 		courant_parcours_complet = courant_parcours_complet->suivant;
-	}
-	if (dernier->piece.getParcourue() == false)
-	{
-		for (const auto &porte : dernier->piece.getPortes())
-		{
-			if (porte.getDestination() == pieceCourante)
-			{
-				dernier->piece.setDistanceDuDebut(pieceCourante->getDistanceDuDebut());
-				file.push(&(dernier->piece));
-			}
-		}
 	}
 }
 void Labyrinthe::setTousParcoursFalse()
@@ -507,7 +506,5 @@ void Labyrinthe::ajoutePieceLabyrinthe(const Piece &p)
 		dernier->suivant = noeud;
 	}
 }
-
-//Mettez l'implémentation de vos autres méthodes ici.
 
 } // namespace TP1
