@@ -88,6 +88,9 @@ public:
 	//!
 	//!	Tant qu'il reste des pièces dans la file et que la pièce d'arrivée n'a pas encore été atteinte (défilée).
 	int solutionner(Couleur joueur);
+	void setTousParcoursFalse();
+	void chercherPortePieceDefiler(const std::list<Porte> &portes,Couleur joueur, std::queue<Piece *> &file,int distance_courante);
+	void chercherSiUnePieceQuiMenePieceCourante(std::queue<Piece *> &file,Piece* Courante);
 
 	//! Cette méthode devra appeler quatre fois la méthode solutionner(), une fois par couleur, pour déterminer
 	//! quel est le joueur qui peut solutionner le labyrinthe en le moins de déplacements. Si aucun joueur ne peut

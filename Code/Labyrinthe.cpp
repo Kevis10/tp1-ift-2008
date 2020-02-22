@@ -182,8 +182,83 @@ void Labyrinthe::_copier(const Labyrinthe &source)
 }
 int Labyrinthe::solutionner(Couleur joueur)
 {
+	std::queue<Piece *> file;
 	// 0 mettre tous les parcours a faux
 
+	setTousParcoursFalse();
+	// 1 commence par le depart
+	depart->setParcourue(true);
+	depart->setDistanceDuDebut(0);
+	file.push(depart);
+	// 2 resous le probleme
+	Piece *courant = nullptr;
+
+	do
+	{
+		courant = file.front();
+		file.pop();
+		const int distance_courante = courant->getDistanceDuDebut();
+
+		std::list<Porte> portes = courant->getPortes();
+
+		chercherPortePieceDefiler(portes, joueur, file, distance_courante);
+		chercherSiUnePieceQuiMenePieceCourante(file, courant);
+
+	} while (!file.empty() && courant != arrivee);
+
+	if (courant != arrivee)
+	{
+		return -1;
+	}
+	return courant->getDistanceDuDebut();
+}
+void Labyrinthe::chercherPortePieceDefiler(const std::list<Porte> &portes, Couleur joueur, std::queue<Piece *> &file, int distance_courante)
+{
+	for (auto &porte : portes)
+	{
+		if (porte.getCouleur() == joueur)
+		{
+			if (!porte.getDestination()->getParcourue())
+			{
+
+				porte.getDestination()->setParcourue(true);
+				porte.getDestination()->setDistanceDuDebut(distance_courante + 1);
+				file.push(porte.getDestination());
+			}
+		}
+	}
+}
+void Labyrinthe::chercherSiUnePieceQuiMenePieceCourante(std::queue<Piece *> &file, Piece *pieceCourante)
+{
+	NoeudListePieces *courant_parcours_complet = dernier->suivant;
+	while (courant_parcours_complet != dernier)
+	{
+		Piece *piece_courante_parcours_complet = &(courant_parcours_complet->piece);
+		if (piece_courante_parcours_complet->getParcourue() == false)
+		{
+			for (const auto &porte : piece_courante_parcours_complet->getPortes())
+			{
+				if (porte.getDestination() == pieceCourante)
+				{
+					file.push(piece_courante_parcours_complet);
+				}
+			}
+		}
+		courant_parcours_complet=courant_parcours_complet->suivant;
+	}
+	if (dernier->piece.getParcourue() == false)
+		{
+			for (const auto &porte : dernier->piece.getPortes())
+			{
+				if (porte.getDestination() == pieceCourante)
+				{
+					file.push(&(dernier->piece));
+				}
+			}
+		}
+}
+void Labyrinthe::setTousParcoursFalse()
+{
 	NoeudListePieces *courantIni = dernier->suivant;
 	while (courantIni != dernier)
 	{
@@ -191,66 +266,6 @@ int Labyrinthe::solutionner(Couleur joueur)
 		courantIni = courantIni->suivant;
 	}
 	dernier->piece.setParcourue(false);
-	std::queue<Piece *> file;
-	// 1
-	depart->setParcourue(true);
-	depart->setDistanceDuDebut(0);
-	file.push(depart);
-	// 2
-	Piece *courant = nullptr;
-	
-	do
-	{
-		courant = file.front();
-		file.pop();
-
-		/*const*/std::list<Porte> portes = courant->getPortes();
-
-		NoeudListePieces *courant_piece = dernier->suivant;
-	while (courant_piece != dernier)
-	{
-		//const std::list<Porte> portes_sens=courant_piece->piece.getPortes;
-		for ( auto &val_porte : courant_piece->piece.getPortes())
-		{
-			if(val_porte.getCouleur()== joueur && val_porte.getDestination()==courant && !courant_piece->piece.getParcourue() )
-			{
-				portes.push_back(val_porte);
-			}
-		}
-		courant_piece=courant_piece->suivant;
-	}
-	for ( auto &val_porte1 : dernier->piece.getPortes())
-		{
-			if(val_porte1.getCouleur()== joueur && val_porte1.getDestination()==courant && !courant_piece->piece.getParcourue())
-			{
-				portes.push_back(val_porte1);
-			}
-		}
-	
-	dernier->piece.setParcourue(false);
-		{
-			
-		}
-		for ( auto &val : portes)
-		{
-			if (val.getCouleur() == joueur)
-			{
-				if (!val.getDestination()->getParcourue())
-				{
-
-					val.getDestination()->setParcourue(true);
-					val.getDestination()->setDistanceDuDebut(courant->getDistanceDuDebut() + 1);
-					file.push(val.getDestination());
-				}
-			}
-		}
-	}
-	while (!file.empty() && courant != arrivee);
-	if (courant != arrivee)
-	{
-		return -1;
-	}
-	return courant->getDistanceDuDebut();
 }
 Couleur Labyrinthe::trouveGagnant()
 {
@@ -261,7 +276,7 @@ Couleur Labyrinthe::trouveGagnant()
 	std::pair<std::vector<Couleur>, int> min = {{Couleur::Aucun}, std::numeric_limits<int>::max()};
 	for (const auto &kv : joueurs)
 	{
-		if (kv.second < min.second && kv.second!=-1)
+		if (kv.second < min.second && kv.second != -1)
 		{
 			min.first = std::vector<Couleur>(1, kv.first);
 			min.second = kv.second;
