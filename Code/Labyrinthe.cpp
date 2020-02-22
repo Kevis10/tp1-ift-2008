@@ -240,22 +240,24 @@ void Labyrinthe::chercherSiUnePieceQuiMenePieceCourante(std::queue<Piece *> &fil
 			{
 				if (porte.getDestination() == pieceCourante)
 				{
+					piece_courante_parcours_complet->setDistanceDuDebut(pieceCourante->getDistanceDuDebut());
 					file.push(piece_courante_parcours_complet);
 				}
 			}
 		}
-		courant_parcours_complet=courant_parcours_complet->suivant;
+		courant_parcours_complet = courant_parcours_complet->suivant;
 	}
 	if (dernier->piece.getParcourue() == false)
+	{
+		for (const auto &porte : dernier->piece.getPortes())
 		{
-			for (const auto &porte : dernier->piece.getPortes())
+			if (porte.getDestination() == pieceCourante)
 			{
-				if (porte.getDestination() == pieceCourante)
-				{
-					file.push(&(dernier->piece));
-				}
+				dernier->piece.setDistanceDuDebut(pieceCourante->getDistanceDuDebut());
+				file.push(&(dernier->piece));
 			}
 		}
+	}
 }
 void Labyrinthe::setTousParcoursFalse()
 {
@@ -263,6 +265,7 @@ void Labyrinthe::setTousParcoursFalse()
 	while (courantIni != dernier)
 	{
 		courantIni->piece.setParcourue(false);
+		courantIni->piece.setDistanceDuDebut(0);
 		courantIni = courantIni->suivant;
 	}
 	dernier->piece.setParcourue(false);
@@ -273,7 +276,12 @@ Couleur Labyrinthe::trouveGagnant()
 											{Couleur::Rouge, solutionner(Couleur::Rouge)},
 											{Couleur::Vert, solutionner(Couleur::Vert)},
 											{Couleur::Jaune, solutionner(Couleur::Jaune)}};
+	return chercheMeilleurScore(joueurs);
+}
+Couleur Labyrinthe::chercheMeilleurScore(const std::map<Couleur, int> &joueurs)
+{
 	std::pair<std::vector<Couleur>, int> min = {{Couleur::Aucun}, std::numeric_limits<int>::max()};
+
 	for (const auto &kv : joueurs)
 	{
 		if (kv.second < min.second && kv.second != -1)

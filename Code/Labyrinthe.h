@@ -15,7 +15,7 @@
 #include <sstream>  // Lecture/écriture dans un string, voir la méthode chargeLabyrinthe() fournie
 #include <string>   // Pour le nom de la pièce
 #include <queue>	// Pour utiliser la file de la STL afin de solutionner le labyrinthe
-#include <map> 
+#include <map>
 #include <limits> // Pour l'utilisation de numeric_limits<int>::max()
 #include <algorithm>
 #include <vector>
@@ -44,7 +44,7 @@ public:
 	~Labyrinthe();
 
 	//! Surcharge de l'opérateur =
-	const Labyrinthe & operator=(const Labyrinthe &source);
+	const Labyrinthe &operator=(const Labyrinthe &source);
 
 	//! Méthode fournie dans le fichier Labyrinthe.cpp, elle charge
 	//! un fichier contenant un labyrinthe d'une certaine couleur
@@ -88,9 +88,6 @@ public:
 	//!
 	//!	Tant qu'il reste des pièces dans la file et que la pièce d'arrivée n'a pas encore été atteinte (défilée).
 	int solutionner(Couleur joueur);
-	void setTousParcoursFalse();
-	void chercherPortePieceDefiler(const std::list<Porte> &portes,Couleur joueur, std::queue<Piece *> &file,int distance_courante);
-	void chercherSiUnePieceQuiMenePieceCourante(std::queue<Piece *> &file,Piece* Courante);
 
 	//! Cette méthode devra appeler quatre fois la méthode solutionner(), une fois par couleur, pour déterminer
 	//! quel est le joueur qui peut solutionner le labyrinthe en le moins de déplacements. Si aucun joueur ne peut
@@ -108,9 +105,12 @@ public:
 
 	//! Vérifie si une pièce portant le nom de la pièce fournie se trouve dans le labyrinthe
 	bool appartient(const Piece &p) const;
-	
 
 private:
+	void setTousParcoursFalse();
+	void chercherPortePieceDefiler(const std::list<Porte> &portes, Couleur joueur, std::queue<Piece *> &file, int distance_courante);
+	void chercherSiUnePieceQuiMenePieceCourante(std::queue<Piece *> &file, Piece *Courante);
+	Couleur chercheMeilleurScore(const std::map<Couleur, int> &joueurs);
 	//! Méthode privée fournie dans le fichier Labyrinthe.cpp, elle ajoute un passage
 	//! dans un labyrinthe. Elle est appelée par la méthode chargeLabyrinthe()
 	void ajoutePassage(Couleur couleur, int i1, int j1, int i2, int j2);
@@ -150,7 +150,6 @@ private:
 	Piece *arrivee; /*!< Adresse de la pièce d'arrivée (et non du noeud qui la contient) */
 
 	//! Accesseur pour le membre noeud d'arrivee
-
 };
 
 } // namespace TP1
