@@ -29,7 +29,12 @@ namespace TP1
 
 /**
  * \class Labyrinthe
- * \brief Classe représentant un labyrinthe formé de plusieurs pièces dotées de portes de couleur.
+ * \brief Classe représentant un labyrinthe formé de plusieurs pièces dotées de portes de couleur. \n
+ * 			Attributs : class NoeudListePieces \n
+ * 						NoeudListePieces * dernier: Le dernier noeud de la liste chaînée circulaire \n
+ * 						Piece * depart :Adresse de la pièce de départ \n
+ * 						Piece * arrivee :Adresse de la pièce d'arrivée
+ * 						
  */
 class Labyrinthe
 {

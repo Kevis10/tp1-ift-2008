@@ -29,7 +29,9 @@ class Piece;
 
 /**
  * \class Porte
- * \brief Classe qui représente une porte d'une couleur donnée entre deux pièces
+ * \brief Classe qui représente une porte d'une couleur donnée entre deux pièces \n
+ * 		  Attributs : Piece * destination : Vers la piece où la porte mène \n
+ * 					  Couleur color : Couleur de la porte
  */
 class Porte
 {

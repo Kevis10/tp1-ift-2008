@@ -14,31 +14,32 @@ namespace TP1
 
 /**
  * \fn Piece::Piece()
- * constructeur par default de la piece parcourue est faux, le nom est un chiffre aleatoire 
- * (aucune garantit que se nom soit unique) et la distance vers le debut est de 0
+ * \brief Constructeur par défault de la classe Piece \n 
+ * L'attribut m_parcourue est mis à "false", l'attribut m_nom à une chaine vide et l'attribut m_distanceDuDebut est initialisé à 0.
  */
 Piece::Piece() : m_parcourue(false), m_nom(""), m_distanceDuDebut(0)
 {
 }
 /**
- * Piece::~Piece()
- * destucteur de l'instance
+ * \fn Piece::~Piece()
+ * \brief destucteur de la classe Piece
  */
 Piece::~Piece()
 {
 }
 /**
  * \fn Piece::Piece(const std::string & p_nom)
- * \param p_nom nom de la piece
- * constructeur par default de la piece parcourue est faux, le nom est definie par l'usager 
- * et la distance vers le debut est de 0
+ * \brief constructeur avec paramètre de la classe Piece.
+ * \param[in] p_nom nom de l'instance piece
+ * 
  */
 Piece::Piece(const std::string &p_nom) : m_parcourue(false), m_nom(p_nom), m_distanceDuDebut(0)
 {
 }
 /**
  * \fn int Piece::getDistanceDuDebut() const
- * retourne la distance de l'instance par rapport au debut du labyrinthe
+ * \brief Accesseur de l'attribut m_distanceDuDebut de la classe Piece
+ * \return m_distanceDuDebut la distance de l'instance Piece par rapport au debut du labyrinthe
  */
 int Piece::getDistanceDuDebut() const
 {
@@ -46,7 +47,8 @@ int Piece::getDistanceDuDebut() const
 }
 /**
  * \fn std::string Piece::getNom() const
- * retourne le nom de la piece en instance
+ * \Accesseur de l'attrbut m_nom de la classe Piece
+ * \return m_nom le nom de l'instance de type piece
  */
 std::string Piece::getNom() const
 {
@@ -54,7 +56,8 @@ std::string Piece::getNom() const
 }
 /**
  * \fn bool Piece::getParcourue() const
- * retourne true si la piece a ete parcourus
+ * \brief Accesseur de l'attribut m_parcourue de la classe Piece
+ * \return m_parcourue un booléen qui indique si l'instance de type pièce à été parcourue ou non
  */
 bool Piece::getParcourue() const
 {
@@ -62,7 +65,8 @@ bool Piece::getParcourue() const
 }
 /**
  * \fn const std::list<Porte> & getPortes() const
- * retourne les porte de l'instance
+ * \brief Accesseur de l'attribut m_portes de la classe Piece
+ * \return m_portes une liste des porte de l'instance de type Piece
  */
 const std::list<Porte> &Piece::getPortes() const
 {
@@ -70,7 +74,8 @@ const std::list<Porte> &Piece::getPortes() const
 }
 /**
  * \fn void Piece::setParcourue(bool p)
- * \param p nouvel etat de parcouru
+ * \brief Mutateur de l'attribut m_parcourue de la classe Piece
+ * \param[in] p un booléen nouvel etat de parcouru
  * Change l'etat de m_parcouru 
  */
 void Piece::setParcourue(bool p)
@@ -88,8 +93,8 @@ void Piece::setDistanceDuDebut(int p_d)
 }
 /**
  * \fn void Piece::ajoutePorte(const Porte & p_p)
- * \param p_p porte
- * Ajoute une porte a la piece
+ * \brief Permet d'ajouter une porte à la liste de portes de la piece
+ * \param[in] p_p une porte passé par référence constante
  */
 void Piece::ajoutePorte(const Porte &p_p)
 {
@@ -97,8 +102,8 @@ void Piece::ajoutePorte(const Porte &p_p)
 }
 /**
  * \fn Piece::Piece(const Piece &p_source)
- * \param p_source piece a copier
- * construit une de Piece a partir d'une autre piece
+ * \brief Constructeur copie  de la classe Piece,permet de construire une copie profonde d'une piece passée en paramètre
+ * \param[in] p_source la piecea à copier passé par référence constante
  */
 Piece::Piece(const Piece &p_source) : m_nom(p_source.m_nom), m_distanceDuDebut(p_source.m_distanceDuDebut),
 									  m_parcourue(p_source.m_parcourue), m_portes(p_source.getPortes())
@@ -106,8 +111,9 @@ Piece::Piece(const Piece &p_source) : m_nom(p_source.m_nom), m_distanceDuDebut(p
 }
 /**
  * \fn const Piece & Piece::operator=(const Piece & p_source)
- * \param p_source
- * surcharge de l'operateur egal
+ * \brief Surcharge de l'operateur d'assignation pour la classe Piece. 
+ * \param[int] p_source une instance de type piece passé par référence constante dont on souhaite faire l'assignation
+ * \return une piece apres copie
  */
 const Piece &Piece::operator=(const Piece &p_source)
 {

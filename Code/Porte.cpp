@@ -14,33 +14,33 @@ namespace TP1
 {
 /**
  * \fn Porte::Porte(Couleur c, Piece *d) : color(c), destination(d)
- * \param c couleur de la porte
- * \param d pointeur de la piece destination
- * constructeur de la porte avec une couleur et une piece destination define par l'utilisateur.
+ * \brief Constructeur avec paramètres de porte prenant une couleur et un pointeur de piece destination définie par l'utilisateur.
+ * \param[in] c couleur de la porte
+ * \param[in] d pointeur de la piece destination
  */
 Porte::Porte(Couleur c, Piece *d) : color(c), destination(d)
 {
 }
 /**
  * \fn Porte::Porte(Couleur c, Piece *d) : color(c), destination(d)
- * constructeur de la porte par default, la Couleur AUCUN et un pointeur nulle sont
- * les parametres de l'instance 
+ * \brief Constructeur de porte par default, l'attribut Color prend la valeur par défaut "Aucin" et l'attribut destination un pointeur nul.
  */
 Porte::Porte() : color(Couleur::Aucun), destination(nullptr)
 {
 }
 /**
- * Porte::Porte(const Porte&)
- * \param Porte porte a copier
- * constructeur de copie de la porte, cree une porte identique,mais independante
+ * \fn Porte::Porte(const Porte&)
+ * \brief Constructeur copie de la classe Porte,cree une porte identique,mais independante.
+ * \param[in] porte, un objet porte passé par référence constante duquel on veut faire une copie .
  */
 Porte::Porte(const Porte &porte) : color(porte.getCouleur()), destination(porte.getDestination())
 {
 }
 /**
  * \fn const Porte & Porte::operator=(const Porte& source)
- * \param source porte a assigner
- * assigne une porte sur l'instance
+ * \brief Surcharge de l'opérateur d'assignation afin de pouvoir assigner des objets de type porte.
+ * \param[in] source ,un objet de type porte passé par référence constante.
+ * \return l'objet de type porte copié.
  */
 const Porte &Porte::operator=(const Porte &source)
 {
@@ -49,9 +49,10 @@ const Porte &Porte::operator=(const Porte &source)
 	return *this;
 }
 /**
- * \fn bool Porte::operator==(const Porte &source) const
- * \param source porte a comparer
- * retourne vrai si les attributs sont identiques
+ * \fn bool Porte::operator==(const Porte &source) const.
+ * \brief surcharge de l'opérateur d'égalité "==", afin de comparer des objets de type porte.
+ * \param[in] source ,objet de type porte  passé par référence constante.
+ * \return un booléen qui est à true si les portes comparées sont identiques, false sinon.
  */
 bool Porte::operator==(const Porte &source) const
 {
@@ -59,7 +60,8 @@ bool Porte::operator==(const Porte &source) const
 }
 /**
  * \fn Couleur Porte::getCouleur() const
- * ascesseur de la couleur de la Porte
+ * \brief Accesseur de l'attribut Color de la classe Porte
+ * \return l'attribut color
  */
 Couleur Porte::getCouleur() const
 {
@@ -67,7 +69,8 @@ Couleur Porte::getCouleur() const
 }
 /**
  * \fn Piece * Porte::getDestination() const
- * ascesseur de la destination de la Porte
+ * \brief Accesseur de l'attribut destination de la classe Porte
+ * \return l'attribut destination
  */
 Piece *Porte::getDestination() const
 {
@@ -75,7 +78,7 @@ Piece *Porte::getDestination() const
 }
 /**
  * \fn Porte::~Porte()
- * destructeur de l'objet
+ * \brief destructeur de la classe Porte
  */
 Porte::~Porte()
 {

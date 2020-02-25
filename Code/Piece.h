@@ -19,7 +19,11 @@ namespace TP1
 {
 /**
  *  \class Piece
- *  \brief Classe représentant une pièce dans un labyrinthe
+ *  \brief Classe représentant une pièce dans un labyrinthe \n
+ * 		 	Attributs : std::list<Porte> m_portes : Les portes qui partent de la pièce contenues dans une liste \n
+ * 						bool m_parcourue :  Indique si la pièce a été parcourue \n
+ * 						std::string m_nom : Le nom de la pièce \n
+ * 						int m_distanceDuDebut: Le nombre de déplacements qu'il est nécessaire d'effectuer depuis la pièce de départ pour se rendre à cette pièce \n	
  */
 class Piece
 {

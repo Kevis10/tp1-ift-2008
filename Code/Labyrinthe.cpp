@@ -17,8 +17,8 @@ namespace TP1
 {
 /**
  * \fn Labyrinthe::Labyrinthe()
- * constructeur de la classe declare declare comme etant des pointeur nulle
- * depart arrive et dernier et define la taille a 0
+ * \brief Constructeur par défaut de la classe Labyrinthe \n 
+ * Assigne aux attributs depart, arrivee et dernier un pointeur nul "nullptr"
 */
 Labyrinthe::Labyrinthe() : depart(nullptr), arrivee(nullptr), dernier(nullptr)
 {
@@ -26,7 +26,7 @@ Labyrinthe::Labyrinthe() : depart(nullptr), arrivee(nullptr), dernier(nullptr)
 
 /**
  * \fn Labyrinthe::~Labyrinthe()
- * Destructeur de la classe, s'assure de libere la memoire des NoeudListePieces
+ * \brief Destructeur de la classe Labyrinthe , s'assure de libere la memoire des instances NoeudListePieces en appelant la méthode _detruire
  */
 
 Labyrinthe::~Labyrinthe()
@@ -35,9 +35,9 @@ Labyrinthe::~Labyrinthe()
 }
 /**
  * \fn void Labyrinthe::placeDepart(const std::string &nom)
- * \param nom nom de la piece a place comme etant le depart
- * place le pointeur depart a la position de la piece du meme nom dans la chaine des 
- * NoeudListePiece, si la piece n'existe pas une exception logic_error est lance
+ * \brief met le pointeur depart a la position de la piece de meme nom dans le Labyrinthe. \n
+ *  Si la piece n'existe pas une exception logic_error est lance
+ * \param[in] nom nom de la piece à placer comme étant le départ
  */
 void Labyrinthe::placeDepart(const std::string &nom)
 {
@@ -60,7 +60,11 @@ void Labyrinthe::placeDepart(const std::string &nom)
 
 	throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
 }
-
+/**
+  * \fn void Labyrinthe::placeArrivee(const std::string &nom)
+  * \brief met le pointeur arrivee à la position de la piece de meme nom dans le Labyrinthe
+  * \param[in] nom nom de la piece à placer comme étant l'arrivée
+*/
 void Labyrinthe::placeArrivee(const std::string &nom)
 {
 	NoeudListePieces *courant = dernier->suivant;
@@ -81,6 +85,10 @@ void Labyrinthe::placeArrivee(const std::string &nom)
 
 	throw logic_error("La pièce portant le nom spécifié n'appartient pas au Labyrinthe ");
 }
+/**
+  * \fn void Labyrinthe::_detruire()
+  * \brief méthode de la classe Labyrinthe qui permet de détruire les instances alloueés dynamiquement
+*/
 void Labyrinthe::_detruire()
 {
 	if (dernier != nullptr)
@@ -99,7 +107,11 @@ void Labyrinthe::_detruire()
 	}
 	dernier = nullptr;
 }
-
+/**
+  * \fn  const Labyrinthe &Labyrinthe::operator=(const Labyrinthe &source)
+  * \brief Surcharge de l'opérateur d'assignation pour la classe Labyrinthe
+  * \param[in] source une instance de type labyrinthe passé par référence constante dont on souhaite faire l'assignation 
+*/
 const Labyrinthe &Labyrinthe::operator=(const Labyrinthe &source)
 {
 	if (dernier != nullptr)
@@ -112,7 +124,12 @@ const Labyrinthe &Labyrinthe::operator=(const Labyrinthe &source)
 	}
 	return (*this);
 }
-
+/**
+  * \fn bool Labyrinthe::appartient(const Piece &p) const
+  * \brief Méthode de la classe Labyrinthe qui vérifie si une pièce appartient au Labyrinthe
+  * \param[in] p une instance de type piece passée par référence constante
+  * \return un booléen qui indique si la pièce appartient au labyrinthe ou non
+*/
 bool Labyrinthe::appartient(const Piece &p) const
 {
 	if (dernier == nullptr)
@@ -134,8 +151,12 @@ bool Labyrinthe::appartient(const Piece &p) const
 	}
 	return false;
 }
-
-Labyrinthe::NoeudListePieces *Labyrinthe::trouvePiece(const std::string &nom) const //Pourquoi mettre Labyrinthe:: devant NoeudListePieces *
+/**
+  * \fn Labyrinthe::NoeudListePieces *Labyrinthe::trouvePiece(const std::string &nom) const
+  * \brief méthode permettant de retourner l'adresse du noeud de la liste de pièces contenue dans le labyrinthe qui correspond à la pièce portant le nom fournit
+  * \param[in] nom de la pièce
+*/
+Labyrinthe::NoeudListePieces *Labyrinthe::trouvePiece(const std::string &nom) const 
 {
 	if (nom == "")
 	{
@@ -151,7 +172,11 @@ Labyrinthe::NoeudListePieces *Labyrinthe::trouvePiece(const std::string &nom) co
 		courant = courant->suivant;
 	}
 }
-
+/**
+  * \fn Labyrinthe::Labyrinthe(const Labyrinthe &source)
+  * \brief  Constructeur copie de la classe Labyrinthe qui appelle la méthode _copier
+  * \param[in] source une instance de type labyrinthe passé par référence constante
+*/
 Labyrinthe::Labyrinthe(const Labyrinthe &source)
 {
 
@@ -164,7 +189,11 @@ Labyrinthe::Labyrinthe(const Labyrinthe &source)
 		_copier(source);
 	}
 }
-
+/**
+  * \fn void Labyrinthe::_copier(const Labyrinthe &source)
+  * \brief méthode de la classe Labyrinthe permettant de faire une deep copy d'une instance de type Labyrinthe
+  * \param[in] source une instance de type Labyrinthe passée par référence constante
+*/
 void Labyrinthe::_copier(const Labyrinthe &source)
 {
 	try
@@ -189,6 +218,12 @@ void Labyrinthe::_copier(const Labyrinthe &source)
 		_detruire();
 	}
 }
+/**
+  * \fn int Labyrinthe::solutionner(Couleur joueur)
+  * \brief Méthode de la classe Labyrinthe qui permet de solutionner le labyrinthe pour un joueur d'une couleur donnée
+  * \param[in] joueur une couleur 
+  * \return un int qui indique en combien d'étapes le joueur peut solutionner le labyrinthe
+*/
 int Labyrinthe::solutionner(Couleur joueur)
 {
 	std::queue<Piece *> file;
@@ -222,6 +257,14 @@ int Labyrinthe::solutionner(Couleur joueur)
 	}
 	return courant->getDistanceDuDebut();
 }
+/**
+  * \fn void Labyrinthe::chercherPortePieceDefiler(const std::list<Porte> &portes, Couleur joueur, std::queue<Piece *> &file, int distance_courante)
+  * \brief méthode utilisée dans solutionner() afin de déterminer si une piece contient une porte de la couleur du joueur qui permet le passage vers la piece courante 
+  * \param[in] portes une liste de portes
+  * \param[in] joueur la couleur du joueur pour la quelle on souhaite trouver un passage existant
+  * \param[in] file queue contenant des pointeurs de pieces
+  * \param[in] distance_courante distance_courante actuelle
+*/
 void Labyrinthe::chercherPortePieceDefiler(const std::list<Porte> &portes, Couleur joueur, std::queue<Piece *> &file, int distance_courante)
 {
 	for (auto &porte : portes)
@@ -238,6 +281,12 @@ void Labyrinthe::chercherPortePieceDefiler(const std::list<Porte> &portes, Coule
 		}
 	}
 }
+/**
+  * \fn void Labyrinthe::chercherSiUnePieceQuiMenePieceCourante(std::queue<Piece *> &file, Piece *pieceCourante)
+  * \brief méthode utiliseé dans solutionner() afin de déterminer si une piece permet le passage vers la piece courante 
+  * \param[in] file queue contenant des pointeurs de pieces
+  * \param[in] pieceCourante pointeur de la piece dont on cherche des passages y menant
+*/
 void Labyrinthe::chercherSiUnePieceQuiMenePieceCourante(std::queue<Piece *> &file, Piece *pieceCourante)
 {
 	NoeudListePieces *courant_parcours_complet = dernier->suivant;
@@ -258,6 +307,10 @@ void Labyrinthe::chercherSiUnePieceQuiMenePieceCourante(std::queue<Piece *> &fil
 		courant_parcours_complet = courant_parcours_complet->suivant;
 	}
 }
+/**
+  * \fn void Labyrinthe::setTousParcoursFalse()
+  * \brief Méthode mettant à false l'attribut parcourue de toutes les pieces du labyrinthes
+*/
 void Labyrinthe::setTousParcoursFalse()
 {
 	NoeudListePieces *courantIni = dernier->suivant;
@@ -269,6 +322,10 @@ void Labyrinthe::setTousParcoursFalse()
 	}
 	dernier->piece.setParcourue(false);
 }
+/**
+  * \fn Couleur Labyrinthe::trouveGagnant()
+  * \brief Méthode faisant 4 appels sur solutionner() pour déterminer quel joueur de Couleur solutionne le labyrinthe en moins d'étapes en faisant appelle à la méthode chercheMeilleurScore
+*/
 Couleur Labyrinthe::trouveGagnant()
 {
 	const std::map<Couleur, int> joueurs = {{Couleur::Bleu, solutionner(Couleur::Bleu)},
@@ -277,6 +334,11 @@ Couleur Labyrinthe::trouveGagnant()
 											{Couleur::Jaune, solutionner(Couleur::Jaune)}};
 	return chercheMeilleurScore(joueurs);
 }
+/**
+  * \fn Couleur Labyrinthe::chercheMeilleurScore(const std::map<Couleur, int> &joueurs)
+  * \brief Méthode permettant de comparer les résultats des differents joueurs apres leur appel à la méthode solutionner
+  * \param[in] joueurs une map <Couleur,int>
+*/
 Couleur Labyrinthe::chercheMeilleurScore(const std::map<Couleur, int> &joueurs)
 {
 	std::pair<std::vector<Couleur>, int> min = {{Couleur::Aucun}, std::numeric_limits<int>::max()};
@@ -303,6 +365,12 @@ Couleur Labyrinthe::chercheMeilleurScore(const std::map<Couleur, int> &joueurs)
 		return gagantAmbigue(min.first);
 	}
 }
+/**
+  * \fn Couleur Labyrinthe::gagantAmbigue(const std::vector<Couleur> &joueurs) const
+  * \brief méthode utilisé dans le cas d'ambiguité dans la recherche du score d'un joueur pour solutionner un labyrinthe
+  * \param[in] joueur un vecteur de couleur des joueurs
+  * \return une couleur du gagnant dans le cas d'ambiguité
+*/
 Couleur Labyrinthe::gagantAmbigue(const std::vector<Couleur> &joueurs) const
 {
 	if (std::find(joueurs.begin(), joueurs.end(), Couleur::Rouge) != joueurs.end())
